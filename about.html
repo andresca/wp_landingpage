@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About · websportal.dev</title>
+  <meta name="description" content="Andrés Badel, freelance full-stack developer building custom web platforms for companies, plus his own products." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://websportal.dev/about.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="websportal.dev" />
+  <meta property="og:title" content="About · websportal.dev" />
+  <meta property="og:description" content="Andrés Badel, freelance full-stack developer building custom web platforms for companies, plus his own products." />
+  <meta property="og:url" content="https://websportal.dev/about.html" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="theme-color" content="#284b63" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <a href="index.html" class="brand" aria-label="websportal.dev home"><span class="brand-mark" aria-hidden="true">&lt;/&gt;</span><span class="brand-name">webs<b>portal</b></span><span class="tld">.dev</span></a>
+    <button id="menu-btn" class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    <nav id="site-nav">
+      <a href="services.html" data-es="Servicios">Services</a>
+      <a href="platforms.html" data-es="Plataformas">Platforms</a>
+      <a href="about.html" data-es="Sobre mí" aria-current="page">About</a>
+      <a href="contact.html" data-es="Contacto">Contact</a>
+      <button id="lang-btn" class="lang-btn" type="button" aria-label="Switch language">ES</button>
+      <!-- Owner-only console link: hidden unless unlocked (see script.js) -->
+      <a href="https://console.websportal.dev" id="console-btn" class="console-btn" hidden>console</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <p class="eyebrow" data-es="Sobre mí">About</p>
+      <h1 data-es="Hola, soy Andrés.">Hi, I'm Andrés.</h1>
+    </section>
+
+    <section class="section first about">
+      <!-- TODO: replace with a photo: <img class="avatar" src="img/andres.jpg" alt="Andrés Badel" /> -->
+      <div class="avatar" aria-hidden="true">AB</div>
+      <div>
+        <!-- TODO: add years of experience, location / time zone and background -->
+        <p class="lead" data-es="Soy desarrollador full-stack independiente. Diseño y construyo plataformas web de principio a fin: arquitectura, base de datos, backend, interfaz y despliegue.">I'm an independent full-stack developer. I design and build web platforms end to end: architecture, database, backend, interface and deployment.</p>
+        <p class="lead" data-es="Con websportal.dev trabajo con empresas en plataformas a medida y, en paralelo, construyo mis propios productos, como psupport.">Through websportal.dev I work with companies on custom platforms and, alongside that, build my own products, like psupport.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 data-es="Lo que me importa">What I care about</h2>
+      <div class="grid">
+        <article class="card">
+          <h3 data-es="Código mantenible">Maintainable code</h3>
+          <p data-es="Software que tu equipo pueda entender y ampliar mucho después del lanzamiento.">Software your team can understand and extend long after launch.</p>
+        </article>
+        <article class="card">
+          <h3 data-es="Seguridad desde el inicio">Security by default</h3>
+          <p data-es="Autenticación, permisos y protección de datos pensados desde el primer día.">Auth, permissions and data protection planned from day one.</p>
+        </article>
+        <article class="card">
+          <h3 data-es="Comunicación clara">Clear communication</h3>
+          <p data-es="Avances frecuentes, sin jerga y sin sorpresas en el presupuesto.">Frequent updates, no jargon and no budget surprises.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section cta-band">
+      <h2 data-es="¿Tienes un proyecto en mente?">Have a project in mind?</h2>
+      <p class="muted" data-es="Cuéntame qué necesitas y te respondo pronto.">Tell me what you need and I'll get back to you soon.</p>
+      <div class="cta">
+        <a class="btn primary" href="contact.html" data-es="Iniciar un proyecto">Start a project</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/andres-badel-b40333116/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:ankbape@gmail.com">Email</a>
+    </div>
+    <div class="bmc-wrap">
+      <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="andres_badel" data-color="#FFDD00" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff"></script>
+    </div>
+    <p>© <span id="year"></span> websportal.dev · Andrés Badel</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

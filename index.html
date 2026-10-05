@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>websportal.dev — Freelance platform developer</title>
+  <meta name="description" content="websportal.dev — Andrés Badel, freelance full-stack developer building custom web platforms for companies, plus his own products." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://websportal.dev/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="websportal.dev" />
+  <meta property="og:title" content="websportal.dev — Freelance platform developer" />
+  <meta property="og:description" content="websportal.dev — Andrés Badel, freelance full-stack developer building custom web platforms for companies, plus his own products." />
+  <meta property="og:url" content="https://websportal.dev/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="theme-color" content="#284b63" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <a href="index.html" class="brand" aria-label="websportal.dev home"><span class="brand-mark" aria-hidden="true">&lt;/&gt;</span><span class="brand-name">webs<b>portal</b></span><span class="tld">.dev</span></a>
+    <button id="menu-btn" class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    <nav id="site-nav">
+      <a href="services.html" data-es="Servicios">Services</a>
+      <a href="platforms.html" data-es="Plataformas">Platforms</a>
+      <a href="about.html" data-es="Sobre mí">About</a>
+      <a href="contact.html" data-es="Contacto">Contact</a>
+      <button id="lang-btn" class="lang-btn" type="button" aria-label="Switch language">ES</button>
+      <!-- Owner-only console link: hidden unless unlocked (see script.js) -->
+      <a href="https://console.websportal.dev" id="console-btn" class="console-btn" hidden>console</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="status"><span class="pulse"></span><span data-es="Disponible para nuevos proyectos">Available for new projects</span></p>
+      <h1 data-es="Plataformas web a medida,&lt;br /&gt;&lt;span&gt;construidas para escalar.&lt;/span&gt;">Custom web platforms,<br /><span>engineered to scale.</span></h1>
+      <p class="lead" data-es="Soy Andrés Badel, desarrollador full-stack independiente. Ayudo a empresas a convertir sus procesos en plataformas web seguras y mantenibles, desde la arquitectura y la base de datos hasta la interfaz final. Bajo &lt;strong&gt;websportal.dev&lt;/strong&gt; también desarrollo mis propios productos.">
+        I'm Andrés Badel, an independent full-stack developer. I help companies turn their
+        processes into secure, maintainable web platforms — from architecture and data to the
+        final interface. Under <strong>websportal.dev</strong>, I also develop my own products.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="contact.html" data-es="Iniciar un proyecto">Start a project</a>
+        <a class="btn ghost" href="platforms.html" data-es="Mira lo que estoy construyendo">See what I'm building</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 data-es="Explora">Explore</h2>
+      <div class="grid">
+        <a class="card link-card" href="services.html">
+          <h3 data-es="Servicios →">Services →</h3>
+          <p data-es="Qué construyo, cómo trabajo, mi stack y preguntas frecuentes.">What I build, how I work, my stack and common questions.</p>
+        </a>
+        <a class="card link-card" href="platforms.html">
+          <h3 data-es="Plataformas →">Platforms →</h3>
+          <p data-es="Mis propios productos, incluido psupport, ya en producción.">My own products, including psupport, now in production.</p>
+        </a>
+        <a class="card link-card" href="about.html">
+          <h3 data-es="Sobre mí →">About me →</h3>
+          <p data-es="Quién soy y qué me importa al construir software.">Who I am and what I care about when building software.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="badge live" data-es="En producción">In Prod</span>
+      <h2>psupport</h2>
+      <p class="muted" data-es="Una plataforma de soporte y administración con dashboards, usuarios y analítica, construida y operada por mí.">A support &amp; admin platform with dashboards, users and analytics, built and run by me.</p>
+      <div class="cta">
+        <a class="btn ghost" href="platforms.html#psupport" data-es="Ver el caso">Read the case study</a>
+        <a class="btn primary" href="https://psupport.websportal.dev" target="_blank" rel="noopener" data-es="Abrir psupport ↗">Open psupport ↗</a>
+      </div>
+    </section>
+
+    <section class="section cta-band">
+      <h2 data-es="¿Tienes un proyecto en mente?">Have a project in mind?</h2>
+      <p class="muted" data-es="Cuéntame qué necesitas y te respondo pronto.">Tell me what you need and I'll get back to you soon.</p>
+      <div class="cta">
+        <a class="btn primary" href="contact.html" data-es="Iniciar un proyecto">Start a project</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/andres-badel-b40333116/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:ankbape@gmail.com">Email</a>
+    </div>
+    <div class="bmc-wrap">
+      <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="andres_badel" data-color="#FFDD00" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff"></script>
+    </div>
+    <p>© <span id="year"></span> websportal.dev · Andrés Badel</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

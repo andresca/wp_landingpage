@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact · websportal.dev</title>
+  <meta name="description" content="Start a project with Andrés Badel at websportal.dev." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://websportal.dev/contact.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="websportal.dev" />
+  <meta property="og:title" content="Contact · websportal.dev" />
+  <meta property="og:description" content="Start a project with Andrés Badel at websportal.dev." />
+  <meta property="og:url" content="https://websportal.dev/contact.html" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="theme-color" content="#284b63" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <a href="index.html" class="brand" aria-label="websportal.dev home"><span class="brand-mark" aria-hidden="true">&lt;/&gt;</span><span class="brand-name">webs<b>portal</b></span><span class="tld">.dev</span></a>
+    <button id="menu-btn" class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    <nav id="site-nav">
+      <a href="services.html" data-es="Servicios">Services</a>
+      <a href="platforms.html" data-es="Plataformas">Platforms</a>
+      <a href="about.html" data-es="Sobre mí">About</a>
+      <a href="contact.html" data-es="Contacto" aria-current="page">Contact</a>
+      <button id="lang-btn" class="lang-btn" type="button" aria-label="Switch language">ES</button>
+      <!-- Owner-only console link: hidden unless unlocked (see script.js) -->
+      <a href="https://console.websportal.dev" id="console-btn" class="console-btn" hidden>console</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <p class="eyebrow" data-es="Contacto">Contact</p>
+      <h1 data-es="Trabajemos juntos">Let's work together</h1>
+      <p class="lead" data-es="Cuéntame sobre tu proyecto, o simplemente saluda.">Tell me about your project, or just say hi. I reply soon.</p>
+    </section>
+
+    <section class="section first contact-layout">
+      <form id="contact-form" class="card contact-form">
+        <label><span data-es="Nombre">Name</span><input name="name" required autocomplete="name" /></label>
+        <label><span data-es="Correo">Email</span><input name="email" type="email" required autocomplete="email" /></label>
+        <label><span data-es="Empresa (opcional)">Company (optional)</span><input name="company" autocomplete="organization" /></label>
+        <label><span data-es="Tu proyecto">Your project</span><textarea name="message" rows="6" required></textarea></label>
+        <button class="btn primary" type="submit" data-es="Enviar mensaje">Send message</button>
+        <p class="form-note muted" data-es="Se abrirá tu aplicación de correo con el mensaje listo.">This opens your email app with the message ready to send.</p>
+      </form>
+
+      <aside class="contact-side">
+        <h3 data-es="O escríbeme directamente">Or reach me directly</h3>
+        <a class="btn primary" href="mailto:ankbape@gmail.com">ankbape@gmail.com</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/andres-badel-b40333116/" target="_blank" rel="noopener">LinkedIn</a>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/andres-badel-b40333116/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:ankbape@gmail.com">Email</a>
+    </div>
+    <div class="bmc-wrap">
+      <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="andres_badel" data-color="#FFDD00" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff"></script>
+    </div>
+    <p>© <span id="year"></span> websportal.dev · Andrés Badel</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
