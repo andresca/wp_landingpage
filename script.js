@@ -47,18 +47,39 @@ document.getElementById("year").textContent = new Date().getFullYear();
   });
 })();
 
-// Contact form: no backend yet, so compose an email in the visitor's mail app.
+// Contact form: posts to the Pages Function at /api/contact, which emails via Resend.
 (function () {
   const form = document.getElementById("contact-form");
   if (!form) return;
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const d = new FormData(form);
-    const subject = `Project inquiry — ${d.get("name")}${d.get("company") ? ` (${d.get("company")})` : ""}`;
-    const body = `${d.get("message")}
+  const status = document.getElementById("form-status");
+  const btn = form.querySelector("button[type=submit]");
+  const MSG = {
+    sending: { en: "Sending…", es: "Enviando…" },
+    ok: { en: "Your message was sent. I'll be in touch soon!", es: "Tu mensaje fue enviado. ¡Te contactaré pronto!" },
+    error: { en: "Something went wrong. Please try again or email me directly.", es: "Algo salió mal. Inténtalo de nuevo o escríbeme directamente." },
+  };
+  const show = (key, cls) => {
+    status.textContent = MSG[key][document.documentElement.lang === "es" ? "es" : "en"];
+    status.className = `form-status ${cls || ""}`;
+  };
 
-— ${d.get("name")}
-${d.get("email")}`;
-    location.href = `mailto:ankbape@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    btn.disabled = true;
+    show("sending");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+      });
+      if (!res.ok) throw new Error(res.status);
+      form.reset();
+      show("ok", "ok");
+    } catch (_) {
+      show("error", "error");
+    } finally {
+      btn.disabled = false;
+    }
   });
 })();

@@ -196,3 +196,20 @@ footer { background: var(--charcoal); color: var(--gray); text-align: center; pa
 .contact-side h3 { color: var(--navy); margin-bottom: 4px; }
 .contact-side .btn { text-align: center; }
 footer .bmc-wrap { display: flex; justify-content: center; margin: 6px 0 14px; }
+
+/* ---- Contact form status ---- */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.form-status { min-height: 1.4em; font-size: .95rem; color: var(--charcoal); }
+.form-status.ok { color: #2e7d4f; font-weight: 600; }
+.form-status.error { color: #b3261e; }
+.contact-form button:disabled { opacity: .6; cursor: wait; }
+
+/* ---- Legal pages ---- */
+.legal { max-width: 720px; }
+.legal h2 { font-size: 1.3rem; margin: 28px 0 8px; }
+.legal h2:first-child { margin-top: 0; }
+.legal p { line-height: 1.7; }
+.legal a { color: var(--teal); text-decoration: underline; }
+.footer-legal { margin-top: 8px; font-size: .85rem; }
+.footer-legal a { color: var(--gray); }
+.footer-legal a:hover { color: var(--white); }
