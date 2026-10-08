@@ -38,6 +38,7 @@
     }
   </script>
   <style>
+    html { overflow-x: clip; }
     body { background-color: #070a13; color: #f3f4f6; font-family: 'Inter', sans-serif; overflow-x: hidden; }
     .bg-grid-pattern { background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px); background-size: 32px 32px; }
     .glow-effect { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.25; pointer-events: none; }
@@ -52,15 +53,17 @@
 </head>
 <body class="antialiased selection:bg-brand-500 selection:text-white">
 
-  <div class="glow-effect w-96 h-96 bg-brand-cyan top-[-100px] left-[-100px]"></div>
-  <div class="glow-effect w-[500px] h-[500px] bg-brand-500 top-[30%] right-[-150px]"></div>
-  <div class="glow-effect w-96 h-96 bg-indigo-600 bottom-[10%] left-[-100px]"></div>
+  <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+    <div class="glow-effect w-96 h-96 bg-brand-cyan top-[-100px] left-[-100px]"></div>
+    <div class="glow-effect w-[500px] h-[500px] bg-brand-500 top-[30%] right-[-150px]"></div>
+    <div class="glow-effect w-96 h-96 bg-indigo-600 bottom-[10%] left-[-100px]"></div>
+  </div>
 
   <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-dark-bg/80 border-b border-dark-border/60">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <a href="index.html" class="flex items-center space-x-3 group" aria-label="websportal.dev home">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-cyan flex items-center justify-center text-white font-mono font-bold text-lg shadow-glow group-hover:scale-105 transition-transform duration-300" aria-hidden="true">&lt;/&gt;</div>
-        <span class="text-xl font-bold tracking-tight text-white font-mono">websportal<span class="text-brand-400">.dev</span></span>
+      <a href="index.html" class="flex items-center gap-2 sm:gap-3 group min-w-0" aria-label="websportal.dev home">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-cyan flex items-center justify-center text-white font-mono font-bold text-lg shadow-glow group-hover:scale-105 transition-transform duration-300" aria-hidden="true">&lt;/&gt;</div>
+        <span class="text-sm min-[360px]:text-base sm:text-xl font-bold tracking-tight text-white font-mono">websportal<span class="text-brand-400">.dev</span></span>
       </a>
 
       <nav class="hidden md:flex items-center space-x-8 font-medium text-sm text-gray-300">
@@ -72,10 +75,10 @@
         <a href="https://console.websportal.dev" id="console-btn" class="font-mono text-xs text-brand-400 border border-brand-500/40 rounded-lg px-2 py-1" hidden>console</a>
       </nav>
 
-      <div class="flex items-center space-x-4">
+      <div class="flex items-center gap-2 sm:gap-4 flex-shrink-0">
         <div class="bg-gray-900/80 p-1 rounded-full border border-dark-border flex items-center" role="group" aria-label="Language">
-          <button type="button" data-lang="en" aria-pressed="true" class="px-3 py-1 text-xs font-semibold rounded-full transition-all duration-300 hover:text-white">EN</button>
-          <button type="button" data-lang="es" aria-pressed="false" class="px-3 py-1 text-xs font-semibold rounded-full transition-all duration-300 hover:text-white">ES</button>
+          <button type="button" data-lang="en" aria-pressed="true" class="px-2.5 sm:px-3 py-1 text-xs font-semibold rounded-full transition-all duration-300 hover:text-white">EN</button>
+          <button type="button" data-lang="es" aria-pressed="false" class="px-2.5 sm:px-3 py-1 text-xs font-semibold rounded-full transition-all duration-300 hover:text-white">ES</button>
         </div>
 
         <a href="contact.html" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-gray-900 bg-brand-400 hover:bg-brand-500 rounded-xl transition-all duration-300 shadow-glow hover:shadow-glow-cyan transform hover:-translate-y-0.5">
