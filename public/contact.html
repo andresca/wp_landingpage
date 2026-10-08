@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark scroll-smooth">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,63 +13,172 @@
   <meta property="og:description" content="Start a project with Andrés Badel at websportal.dev." />
   <meta property="og:url" content="https://websportal.dev/contact.html" />
   <meta name="twitter:card" content="summary" />
-  <meta name="theme-color" content="#284b63" />
+  <meta name="theme-color" content="#070a13" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+          colors: {
+            brand: { 50: '#f0fdfa', 100: '#ccfbf1', 400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488', 900: '#134e4a', cyan: '#06b6d4', glow: '#00f2fe' },
+            dark: { bg: '#0a0f1d', card: '#111827', cardHover: '#1f2937', border: '#1f293d' }
+          },
+          boxShadow: {
+            'glow': '0 0 25px -5px rgba(20, 184, 166, 0.3)',
+            'glow-cyan': '0 0 30px -5px rgba(6, 182, 212, 0.35)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #070a13; color: #f3f4f6; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+    .bg-grid-pattern { background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px); background-size: 32px 32px; }
+    .glow-effect { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.25; pointer-events: none; }
+    #site-nav.open { display: block; }
+    [data-lang] { color: #9ca3af; }
+    [data-lang][aria-pressed="true"] { color: #fff; background: #0d9488; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0a0f1d; }
+    ::-webkit-scrollbar-thumb { background: #1f293d; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #2dd4bf; }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+    .form-status.ok { color: #34d399; font-weight: 600; }
+    .form-status.error { color: #f87171; }
+  </style>
 </head>
-<body>
-  <header class="nav">
-    <a href="index.html" class="brand" aria-label="websportal.dev home"><span class="brand-mark" aria-hidden="true">&lt;/&gt;</span><span class="brand-name">webs<b>portal</b></span><span class="tld">.dev</span></a>
-    <button id="menu-btn" class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
-    <nav id="site-nav">
-      <a href="services.html" data-es="Servicios">Services</a>
-      <a href="platforms.html" data-es="Plataformas">Platforms</a>
-      <a href="about.html" data-es="Sobre mí">About</a>
-      <a href="contact.html" data-es="Contacto" aria-current="page">Contact</a>
-      <button id="lang-btn" class="lang-btn" type="button" aria-label="Switch language">ES</button>
-      <!-- Owner-only console link: hidden unless unlocked (see script.js) -->
-      <a href="https://console.websportal.dev" id="console-btn" class="console-btn" hidden>console</a>
-    </nav>
+<body class="antialiased selection:bg-brand-500 selection:text-white">
+
+  <div class="glow-effect w-96 h-96 bg-brand-cyan top-[-100px] left-[-100px]"></div>
+  <div class="glow-effect w-[500px] h-[500px] bg-brand-500 top-[30%] right-[-150px]"></div>
+  <div class="glow-effect w-96 h-96 bg-indigo-600 bottom-[10%] left-[-100px]"></div>
+
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-dark-bg/80 border-b border-dark-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center space-x-3 group" aria-label="websportal.dev home">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-cyan flex items-center justify-center text-white font-mono font-bold text-lg shadow-glow group-hover:scale-105 transition-transform duration-300" aria-hidden="true">&lt;/&gt;</div>
+        <span class="text-xl font-bold tracking-tight text-white font-mono">websportal<span class="text-brand-400">.dev</span></span>
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-8 font-medium text-sm text-gray-300">
+        <a href="services.html" class="hover:text-brand-400 transition-colors py-2" data-es="Servicios">Services</a>
+        <a href="platforms.html" class="hover:text-brand-400 transition-colors py-2" data-es="Plataformas">Platforms</a>
+        <a href="about.html" class="hover:text-brand-400 transition-colors py-2" data-es="Sobre mí">About</a>
+        <a href="contact.html" class="text-brand-400 transition-colors py-2" aria-current="page" data-es="Contacto">Contact</a>
+        <!-- Owner-only console link: hidden unless unlocked (see script.js) -->
+        <a href="https://console.websportal.dev" id="console-btn" class="font-mono text-xs text-brand-400 border border-brand-500/40 rounded-lg px-2 py-1" hidden>console</a>
+      </nav>
+
+      <div class="flex items-center space-x-4">
+        <div class="bg-gray-900/80 p-1 rounded-full border border-dark-border flex items-center" role="group" aria-label="Language">
+          <button type="button" data-lang="en" aria-pressed="true" class="px-3 py-1 text-xs font-semibold rounded-full transition-all duration-300 hover:text-white">EN</button>
+          <button type="button" data-lang="es" aria-pressed="false" class="px-3 py-1 text-xs font-semibold rounded-full transition-all duration-300 hover:text-white">ES</button>
+        </div>
+
+        <a href="contact.html" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-gray-900 bg-brand-400 hover:bg-brand-500 rounded-xl transition-all duration-300 shadow-glow hover:shadow-glow-cyan transform hover:-translate-y-0.5">
+          <span data-es="Hablemos">Let's talk</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 ml-1.5"></i>
+        </a>
+
+        <button id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav" class="md:hidden p-2 rounded-lg bg-gray-900 text-gray-300 hover:text-white border border-dark-border">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="site-nav" class="hidden md:hidden bg-dark-card/95 border-b border-dark-border px-4 pt-2 pb-6 space-y-3">
+      <a href="services.html" class="block py-2 text-gray-300 hover:text-brand-400" data-es="Servicios">Services</a>
+      <a href="platforms.html" class="block py-2 text-gray-300 hover:text-brand-400" data-es="Plataformas">Platforms</a>
+      <a href="about.html" class="block py-2 text-gray-300 hover:text-brand-400" data-es="Sobre mí">About</a>
+      <a href="contact.html" class="block py-2 text-brand-400" aria-current="page" data-es="Contacto">Contact</a>
+      <a href="contact.html" class="w-full mt-4 flex items-center justify-center px-4 py-2.5 text-sm font-semibold text-gray-900 bg-brand-400 rounded-xl" data-es="Hablemos">Let's talk</a>
+    </div>
   </header>
 
-  <main>
-    <section class="page-head">
-      <p class="eyebrow" data-es="Contacto">Contact</p>
-      <h1 data-es="Trabajemos juntos">Let's work together</h1>
-      <p class="lead" data-es="Cuéntame sobre tu proyecto, o simplemente saluda.">Tell me about your project, or just say hi. I reply soon.</p>
+  <main class="pt-20">
+    <section class="relative pt-16 pb-12 md:pt-24 md:pb-16 overflow-hidden bg-grid-pattern">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center space-y-6">
+          <span class="text-xs font-mono font-semibold tracking-wider text-brand-400 uppercase" data-es="Contacto">Contact</span>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight" data-es="Trabajemos juntos">Let's work together</h1>
+          <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed" data-es="Cuéntame sobre tu proyecto, o simplemente saluda. Te respondo personalmente, normalmente en uno o dos días hábiles.">Tell me about your project, or just say hi. I'll reply personally, usually within one or two business days.</p>
+        </div>
+      </div>
     </section>
+    <section class="pb-24 relative">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-8">
+          <form id="contact-form" class="lg:col-span-8 p-6 sm:p-8 rounded-2xl bg-dark-card border border-dark-border space-y-5">
+            <div class="grid sm:grid-cols-2 gap-5">
+              <label class="block text-sm font-medium text-gray-300"><span data-es="Nombre">Name</span><input name="name" required autocomplete="name" class="mt-2 w-full rounded-xl bg-gray-900/60 border border-dark-border px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-500/30 transition-colors" /></label>
+              <label class="block text-sm font-medium text-gray-300"><span data-es="Correo">Email</span><input name="email" type="email" required autocomplete="email" class="mt-2 w-full rounded-xl bg-gray-900/60 border border-dark-border px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-500/30 transition-colors" /></label>
+            </div>
+            <label class="block text-sm font-medium text-gray-300"><span data-es="Empresa (opcional)">Company (optional)</span><input name="company" autocomplete="organization" class="mt-2 w-full rounded-xl bg-gray-900/60 border border-dark-border px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-500/30 transition-colors" /></label>
+            <label class="block text-sm font-medium text-gray-300"><span data-es="Tu proyecto">Your project</span><textarea name="message" rows="6" required class="mt-2 w-full rounded-xl bg-gray-900/60 border border-dark-border px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-500/30 transition-colors resize-y"></textarea></label>
+            <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-gray-900 bg-brand-400 hover:bg-brand-500 rounded-xl transition-all duration-300 shadow-glow hover:shadow-glow-cyan transform hover:-translate-y-0.5 px-8 disabled:opacity-60 disabled:cursor-wait">
+              <span data-es="Enviar mensaje">Send message</span>
+              <i data-lucide="send" class="w-4 h-4 ml-2"></i>
+            </button>
+            <p id="form-status" class="form-status min-h-[1.4em] text-sm text-gray-400" role="status" aria-live="polite"></p>
+          </form>
 
-    <section class="section first contact-layout">
-      <form id="contact-form" class="card contact-form">
-        <label><span data-es="Nombre">Name</span><input name="name" required autocomplete="name" /></label>
-        <label><span data-es="Correo">Email</span><input name="email" type="email" required autocomplete="email" /></label>
-        <label><span data-es="Empresa (opcional)">Company (optional)</span><input name="company" autocomplete="organization" /></label>
-        <label><span data-es="Tu proyecto">Your project</span><textarea name="message" rows="6" required></textarea></label>
-        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
-        <button class="btn primary" type="submit" data-es="Enviar mensaje">Send message</button>
-        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
-      </form>
-
-      <aside class="contact-side">
-        <h3 data-es="O escríbeme directamente">Or reach me directly</h3>
-        <a class="btn primary" href="mailto:ankbape@gmail.com">ankbape@gmail.com</a>
-        <a class="btn ghost" href="https://www.linkedin.com/in/andres-badel-b40333116/" target="_blank" rel="noopener">LinkedIn</a>
-      </aside>
+          <aside class="lg:col-span-4 space-y-6">
+            <div class="p-6 rounded-2xl bg-dark-card border border-dark-border space-y-4">
+              <h3 class="text-lg font-bold text-white" data-es="O escríbeme directamente">Or reach me directly</h3>
+              <a href="mailto:ankbape@gmail.com" class="flex items-center gap-3 p-3 rounded-xl bg-gray-900/60 border border-dark-border/50 hover:border-brand-500/50 transition-colors text-sm text-gray-300 hover:text-white">
+                <span class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center flex-shrink-0"><i data-lucide="mail" class="w-5 h-5"></i></span>
+                <span class="font-mono break-all">ankbape@gmail.com</span>
+              </a>
+              <a href="https://www.linkedin.com/in/andres-badel-b40333116/" target="_blank" rel="noopener" class="flex items-center gap-3 p-3 rounded-xl bg-gray-900/60 border border-dark-border/50 hover:border-brand-500/50 transition-colors text-sm text-gray-300 hover:text-white">
+                <span class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center flex-shrink-0"><i data-lucide="linkedin" class="w-5 h-5"></i></span>
+                <span>LinkedIn</span>
+                <i data-lucide="arrow-up-right" class="w-4 h-4 ml-auto text-gray-500"></i>
+              </a>
+            </div>
+            <div class="p-6 rounded-2xl bg-dark-card border border-dark-border space-y-3 text-sm text-gray-400">
+              <div class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-brand-400"></i><span data-es="Respuesta en 1–2 días hábiles">Reply within 1–2 business days</span></div>
+              <div class="flex items-center gap-2"><i data-lucide="user-check" class="w-4 h-4 text-brand-400"></i><span data-es="Trato directo conmigo">You work with me directly</span></div>
+              <div class="flex items-center gap-2"><i data-lucide="code-2" class="w-4 h-4 text-brand-400"></i><span data-es="El código es tuyo">You own the code</span></div>
+            </div>
+          </aside>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <div class="footer-links">
-      <a href="https://www.linkedin.com/in/andres-badel-b40333116/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:ankbape@gmail.com">Email</a>
+  <footer class="bg-dark-card border-t border-dark-border py-12 text-sm text-gray-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white font-mono font-bold text-sm" aria-hidden="true">&lt;/&gt;</div>
+          <span class="text-lg font-bold text-white font-mono">websportal<span class="text-brand-400">.dev</span></span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6 font-medium">
+          <a href="services.html" class="hover:text-brand-400 transition-colors" data-es="Servicios">Services</a>
+          <a href="platforms.html" class="hover:text-brand-400 transition-colors" data-es="Plataformas">Platforms</a>
+          <a href="about.html" class="hover:text-brand-400 transition-colors" data-es="Sobre mí">About</a>
+          <a href="contact.html" class="hover:text-brand-400 transition-colors" data-es="Contacto">Contact</a>
+          <a href="https://www.linkedin.com/in/andres-badel-b40333116/" target="_blank" rel="noopener" class="hover:text-brand-400 transition-colors">LinkedIn</a>
+        </div>
+        <div>
+          <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="andres_badel" data-color="#FFDD00" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff"></script>
+        </div>
+      </div>
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-gray-500 border-t border-dark-border pt-6">
+        <p>© <span id="year"></span> websportal.dev · Andrés Badel</p>
+        <p><a href="privacy.html" class="hover:text-brand-400" data-es="Privacidad">Privacy</a> · <a href="terms.html" class="hover:text-brand-400" data-es="Términos">Terms</a></p>
+      </div>
     </div>
-    <div class="bmc-wrap">
-      <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="andres_badel" data-color="#FFDD00" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff"></script>
-    </div>
-    <p class="footer-legal"><a href="privacy.html" data-es="Privacidad">Privacy</a> · <a href="terms.html" data-es="Términos">Terms</a></p>
-    <p>© <span id="year"></span> websportal.dev · Andrés Badel</p>
   </footer>
+
   <script src="script.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

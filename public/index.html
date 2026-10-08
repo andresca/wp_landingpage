@@ -1,111 +1,404 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark scroll-smooth">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>websportal.dev — Freelance platform developer</title>
-  <meta name="description" content="websportal.dev — Andrés Badel, freelance full-stack developer building custom web platforms for companies, plus his own products." />
+  <title>websportal.dev — Custom web platforms by Andrés Badel</title>
+  <meta name="description" content="Andrés Badel, independent full-stack developer. I design, build and run custom web platforms for companies, plus my own products: psupport and Tiendero." />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="canonical" href="https://websportal.dev/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="websportal.dev" />
-  <meta property="og:title" content="websportal.dev — Freelance platform developer" />
-  <meta property="og:description" content="websportal.dev — Andrés Badel, freelance full-stack developer building custom web platforms for companies, plus his own products." />
+  <meta property="og:title" content="websportal.dev — Custom web platforms by Andrés Badel" />
+  <meta property="og:description" content="Independent full-stack developer building secure, maintainable web platforms for companies, plus my own products." />
   <meta property="og:url" content="https://websportal.dev/" />
   <meta name="twitter:card" content="summary" />
-  <meta name="theme-color" content="#284b63" />
+  <meta name="theme-color" content="#070a13" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+          colors: {
+            brand: { 50: '#f0fdfa', 100: '#ccfbf1', 400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488', 900: '#134e4a', cyan: '#06b6d4', glow: '#00f2fe' },
+            dark: { bg: '#0a0f1d', card: '#111827', cardHover: '#1f2937', border: '#1f293d' }
+          },
+          boxShadow: {
+            'glow': '0 0 25px -5px rgba(20, 184, 166, 0.3)',
+            'glow-cyan': '0 0 30px -5px rgba(6, 182, 212, 0.35)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #070a13; color: #f3f4f6; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+    .bg-grid-pattern { background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px); background-size: 32px 32px; }
+    .glow-effect { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.25; pointer-events: none; }
+    #site-nav.open { display: block; }
+    [data-lang] { color: #9ca3af; }
+    [data-lang][aria-pressed="true"] { color: #fff; background: #0d9488; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0a0f1d; }
+    ::-webkit-scrollbar-thumb { background: #1f293d; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #2dd4bf; }
+  </style>
 </head>
-<body>
-  <header class="nav">
-    <a href="index.html" class="brand" aria-label="websportal.dev home"><span class="brand-mark" aria-hidden="true">&lt;/&gt;</span><span class="brand-name">webs<b>portal</b></span><span class="tld">.dev</span></a>
-    <button id="menu-btn" class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
-    <nav id="site-nav">
-      <a href="services.html" data-es="Servicios">Services</a>
-      <a href="platforms.html" data-es="Plataformas">Platforms</a>
-      <a href="about.html" data-es="Sobre mí">About</a>
-      <a href="contact.html" data-es="Contacto">Contact</a>
-      <button id="lang-btn" class="lang-btn" type="button" aria-label="Switch language">ES</button>
-      <!-- Owner-only console link: hidden unless unlocked (see script.js) -->
-      <a href="https://console.websportal.dev" id="console-btn" class="console-btn" hidden>console</a>
-    </nav>
+<body class="antialiased selection:bg-brand-500 selection:text-white">
+
+  <div class="glow-effect w-96 h-96 bg-brand-cyan top-[-100px] left-[-100px]"></div>
+  <div class="glow-effect w-[500px] h-[500px] bg-brand-500 top-[30%] right-[-150px]"></div>
+  <div class="glow-effect w-96 h-96 bg-indigo-600 bottom-[10%] left-[-100px]"></div>
+
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-dark-bg/80 border-b border-dark-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center space-x-3 group" aria-label="websportal.dev home">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-cyan flex items-center justify-center text-white font-mono font-bold text-lg shadow-glow group-hover:scale-105 transition-transform duration-300" aria-hidden="true">&lt;/&gt;</div>
+        <span class="text-xl font-bold tracking-tight text-white font-mono">websportal<span class="text-brand-400">.dev</span></span>
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-8 font-medium text-sm text-gray-300">
+        <a href="services.html" class="hover:text-brand-400 transition-colors py-2" data-es="Servicios">Services</a>
+        <a href="platforms.html" class="hover:text-brand-400 transition-colors py-2" data-es="Plataformas">Platforms</a>
+        <a href="about.html" class="hover:text-brand-400 transition-colors py-2" data-es="Sobre mí">About</a>
+        <a href="contact.html" class="hover:text-brand-400 transition-colors py-2" data-es="Contacto">Contact</a>
+        <!-- Owner-only console link: hidden unless unlocked (see script.js) -->
+        <a href="https://console.websportal.dev" id="console-btn" class="font-mono text-xs text-brand-400 border border-brand-500/40 rounded-lg px-2 py-1" hidden>console</a>
+      </nav>
+
+      <div class="flex items-center space-x-4">
+        <div class="bg-gray-900/80 p-1 rounded-full border border-dark-border flex items-center" role="group" aria-label="Language">
+          <button type="button" data-lang="en" aria-pressed="true" class="px-3 py-1 text-xs font-semibold rounded-full transition-all duration-300 hover:text-white">EN</button>
+          <button type="button" data-lang="es" aria-pressed="false" class="px-3 py-1 text-xs font-semibold rounded-full transition-all duration-300 hover:text-white">ES</button>
+        </div>
+
+        <a href="contact.html" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-gray-900 bg-brand-400 hover:bg-brand-500 rounded-xl transition-all duration-300 shadow-glow hover:shadow-glow-cyan transform hover:-translate-y-0.5">
+          <span data-es="Hablemos">Let's talk</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 ml-1.5"></i>
+        </a>
+
+        <button id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav" class="md:hidden p-2 rounded-lg bg-gray-900 text-gray-300 hover:text-white border border-dark-border">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="site-nav" class="hidden md:hidden bg-dark-card/95 border-b border-dark-border px-4 pt-2 pb-6 space-y-3">
+      <a href="services.html" class="block py-2 text-gray-300 hover:text-brand-400" data-es="Servicios">Services</a>
+      <a href="platforms.html" class="block py-2 text-gray-300 hover:text-brand-400" data-es="Plataformas">Platforms</a>
+      <a href="about.html" class="block py-2 text-gray-300 hover:text-brand-400" data-es="Sobre mí">About</a>
+      <a href="contact.html" class="block py-2 text-gray-300 hover:text-brand-400" data-es="Contacto">Contact</a>
+      <a href="contact.html" class="w-full mt-4 flex items-center justify-center px-4 py-2.5 text-sm font-semibold text-gray-900 bg-brand-400 rounded-xl" data-es="Hablemos">Let's talk</a>
+    </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <p class="status"><span class="pulse"></span><span data-es="Disponible para nuevos proyectos">Available for new projects</span></p>
-      <h1 data-es="Plataformas web a medida,&lt;br /&gt;&lt;span&gt;construidas para escalar.&lt;/span&gt;">Custom web platforms,<br /><span>engineered to scale.</span></h1>
-      <p class="lead" data-es="Soy Andrés Badel, desarrollador full-stack independiente. Ayudo a empresas a convertir sus procesos en plataformas web seguras y mantenibles, desde la arquitectura y la base de datos hasta la interfaz final. Bajo &lt;strong&gt;websportal.dev&lt;/strong&gt; también desarrollo mis propios productos.">
-        I'm Andrés Badel, an independent full-stack developer. I help companies turn their
-        processes into secure, maintainable web platforms — from architecture and data to the
-        final interface. Under <strong>websportal.dev</strong>, I also develop my own products.
-      </p>
-      <div class="cta">
-        <a class="btn primary" href="contact.html" data-es="Iniciar un proyecto">Start a project</a>
-        <a class="btn ghost" href="platforms.html" data-es="Mira lo que estoy construyendo">See what I'm building</a>
+  <main class="pt-20">
+    <!-- Hero -->
+    <section class="relative pt-12 pb-20 md:pt-24 md:pb-32 overflow-hidden bg-grid-pattern">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+          <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+            <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs sm:text-sm font-medium">
+              <span class="flex h-2 w-2 rounded-full bg-brand-400 animate-ping"></span>
+              <span data-es="Disponible para nuevos proyectos">Available for new projects</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight" data-es="Plataformas web a medida, construidas para durar.">
+              Custom web platforms, built to last.
+            </h1>
+
+            <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed" data-es="Soy Andrés Badel, desarrollador full-stack independiente. Ayudo a empresas a convertir los procesos que hoy viven en hojas de cálculo y correos en plataformas web seguras y fáciles de mantener, desde la arquitectura hasta el despliegue.">
+              I'm Andrés Badel, an independent full-stack developer. I help companies turn the processes
+              that live in spreadsheets and email threads into secure, maintainable web platforms,
+              from the architecture all the way to deployment.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+              <a href="contact.html" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-xl text-gray-900 bg-brand-400 hover:bg-brand-500 transition-all duration-300 shadow-glow hover:shadow-glow-cyan transform hover:-translate-y-1">
+                <span data-es="Cuéntame tu proyecto">Tell me about your project</span>
+                <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+              </a>
+              <a href="#platforms" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-xl text-gray-300 bg-dark-card hover:bg-dark-cardHover border border-dark-border hover:border-gray-600 transition-all duration-300">
+                <span data-es="Ver mi trabajo">See my work</span>
+              </a>
+            </div>
+
+            <div class="pt-8 border-t border-dark-border/80 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-gray-400 font-mono">
+              <div class="flex items-center space-x-2">
+                <i data-lucide="shield-check" class="w-4 h-4 text-brand-400"></i>
+                <span data-es="Seguridad desde el día uno">Security from day one</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <i data-lucide="rocket" class="w-4 h-4 text-brand-400"></i>
+                <span data-es="2 plataformas propias en producción">2 own platforms in production</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <i data-lucide="code-2" class="w-4 h-4 text-brand-400"></i>
+                <span data-es="El código es tuyo">You own the code</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero visual -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative mx-auto max-w-md lg:max-w-none">
+              <div class="rounded-2xl bg-dark-card border border-dark-border p-4 sm:p-6 shadow-2xl relative z-10 backdrop-blur-xl">
+                <div class="flex items-center justify-between pb-4 border-b border-dark-border mb-4">
+                  <div class="flex space-x-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                  </div>
+                  <span class="text-xs font-mono text-gray-500">your-platform.ts</span>
+                </div>
+
+                <div class="font-mono text-xs sm:text-sm space-y-2 text-gray-300 leading-relaxed overflow-x-auto">
+                  <p><span class="text-purple-400">import</span> { <span class="text-brand-400">Platform</span> } <span class="text-purple-400">from</span> <span class="text-emerald-300">'@websportal/core'</span>;</p>
+                  <p class="text-gray-500">// Built around how your team actually works</p>
+                  <p><span class="text-purple-400">const</span> app = <span class="text-purple-400">new</span> <span class="text-blue-400">Platform</span>({</p>
+                  <p class="pl-4">users: <span class="text-emerald-300">'roles &amp; permissions'</span>,</p>
+                  <p class="pl-4">data: <span class="text-emerald-300">'secure by default'</span>,</p>
+                  <p class="pl-4">code: <span class="text-emerald-300">'clean &amp; documented'</span></p>
+                  <p>});</p>
+                  <p class="pt-2"><span class="text-purple-400">await</span> app.<span class="text-blue-400">launch</span>();</p>
+                  <p class="text-brand-400">// ✓ live, and you own it</p>
+                </div>
+
+                <div class="mt-6 pt-4 border-t border-dark-border grid grid-cols-2 gap-3 text-center">
+                  <a href="https://psupport.websportal.dev" target="_blank" rel="noopener" class="bg-gray-900/60 p-3 rounded-xl border border-dark-border/50 hover:border-brand-500/50 transition-colors">
+                    <span class="text-xs text-gray-400 block mb-1" data-es="En producción">In production</span>
+                    <span class="text-lg font-bold text-brand-400 font-mono">psupport</span>
+                  </a>
+                  <a href="https://tiendero.websportal.dev" target="_blank" rel="noopener" class="bg-gray-900/60 p-3 rounded-xl border border-dark-border/50 hover:border-brand-500/50 transition-colors">
+                    <span class="text-xs text-gray-400 block mb-1" data-es="En producción">In production</span>
+                    <span class="text-lg font-bold text-emerald-400 font-mono">Tiendero</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="absolute -top-6 -right-6 bg-brand-cyan/20 border border-brand-cyan/40 backdrop-blur-md px-4 py-2.5 rounded-xl text-white text-xs font-semibold items-center space-x-2 hidden sm:flex shadow-lg z-20">
+                <i data-lucide="layers" class="w-4 h-4 text-brand-400"></i>
+                <span data-es="De principio a fin">End to end</span>
+              </div>
+              <div class="absolute -bottom-6 -left-6 bg-indigo-500/20 border border-indigo-500/40 backdrop-blur-md px-4 py-2.5 rounded-xl text-white text-xs font-semibold items-center space-x-2 hidden sm:flex shadow-lg z-20">
+                <i data-lucide="user-check" class="w-4 h-4 text-indigo-400"></i>
+                <span data-es="Trato directo conmigo">You work with me directly</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <h2 data-es="Explora">Explore</h2>
-      <div class="grid">
-        <a class="card link-card" href="services.html">
-          <h3 data-es="Servicios →">Services →</h3>
-          <p data-es="Qué construyo, cómo trabajo, mi stack y preguntas frecuentes.">What I build, how I work, my stack and common questions.</p>
-        </a>
-        <a class="card link-card" href="platforms.html">
-          <h3 data-es="Plataformas →">Platforms →</h3>
-          <p data-es="Mis propios productos, incluidos psupport y Tiendero, ya en producción.">My own products, including psupport and Tiendero, now in production.</p>
-        </a>
-        <a class="card link-card" href="about.html">
-          <h3 data-es="Sobre mí →">About me →</h3>
-          <p data-es="Quién soy y qué me importa al construir software.">Who I am and what I care about when building software.</p>
-        </a>
+    <!-- About -->
+    <section id="about" class="py-20 bg-dark-bg/50 border-y border-dark-border relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center space-y-6">
+          <span class="text-xs font-mono font-semibold tracking-wider text-brand-400 uppercase" data-es="Sobre mí">About me</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-snug" data-es="Un solo desarrollador, responsable de todo el sistema">
+            One developer, accountable for the whole system
+          </h2>
+          <p class="text-lg text-gray-300 leading-relaxed" data-es="Cuando trabajas conmigo, hablas directamente con quien diseña la base de datos, escribe el código y lo pone en producción. Sin intermediarios ni traspasos entre equipos: solo decisiones claras y un software que tu equipo puede entender y ampliar mucho después del lanzamiento.">
+            When you work with me, you talk directly to the person who designs the database, writes the
+            code and puts it into production. No account managers or hand-offs between teams, just clear
+            decisions and software your team can understand and extend long after launch.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 mt-16">
+          <div class="p-6 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/50 transition-all duration-300">
+            <div class="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center mb-5"><i data-lucide="wrench" class="w-6 h-6"></i></div>
+            <h3 class="text-xl font-bold text-white mb-2" data-es="Código mantenible">Maintainable code</h3>
+            <p class="text-gray-400 text-sm leading-relaxed" data-es="Estructura clara y documentación, para que el proyecto nunca dependa de una sola persona.">Clear structure and documentation, so the project never depends on a single person.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/50 transition-all duration-300">
+            <div class="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center mb-5"><i data-lucide="shield" class="w-6 h-6"></i></div>
+            <h3 class="text-xl font-bold text-white mb-2" data-es="Seguridad desde el inicio">Security by default</h3>
+            <p class="text-gray-400 text-sm leading-relaxed" data-es="Autenticación, roles y protección de datos planificados desde el primer día, no añadidos al final.">Authentication, roles and data protection planned from the first day, not bolted on at the end.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/50 transition-all duration-300">
+            <div class="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center mb-5"><i data-lucide="message-circle" class="w-6 h-6"></i></div>
+            <h3 class="text-xl font-bold text-white mb-2" data-es="Comunicación clara">Clear communication</h3>
+            <p class="text-gray-400 text-sm leading-relaxed" data-es="Avances frecuentes, explicaciones sin jerga y un presupuesto sin sorpresas.">Regular updates, plain-language explanations and a budget without surprises.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <span class="badge live" data-es="En producción">In Prod</span>
-      <h2>psupport</h2>
-      <p class="muted" data-es="Una plataforma de soporte y administración con dashboards, usuarios y analítica, construida y operada por mí.">A support &amp; admin platform with dashboards, users and analytics, built and run by me.</p>
-      <div class="cta">
-        <a class="btn ghost" href="platforms.html#psupport" data-es="Ver el caso">Read the case study</a>
-        <a class="btn primary" href="https://psupport.websportal.dev" target="_blank" rel="noopener" data-es="Abrir psupport ↗">Open psupport ↗</a>
+    <!-- Services -->
+    <section id="services" class="py-24 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+          <span class="text-xs font-mono font-semibold tracking-wider text-brand-400 uppercase" data-es="Servicios">Services</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-es="Lo que puedo construir para ti">What I can build for you</h2>
+          <p class="text-gray-400 text-base" data-es="Software hecho a la medida de tu operación, pensado para funcionar bien hoy y crecer contigo mañana.">Software shaped around your operation, designed to work well today and grow with you tomorrow.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-400 transition-all duration-300 group hover:shadow-glow">
+            <div class="flex items-start space-x-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-brand-600/30 to-brand-cyan/20 border border-brand-500/30 text-brand-400 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300"><i data-lucide="monitor" class="w-7 h-7"></i></div>
+              <div class="space-y-3">
+                <h3 class="text-xl font-bold text-white group-hover:text-brand-400 transition-colors" data-es="Plataformas y portales a medida">Custom platforms &amp; portals</h3>
+                <p class="text-gray-300 text-sm leading-relaxed" data-es="Herramientas internas, portales de clientes y productos SaaS construidos según cómo funciona realmente tu empresa.">Internal tools, client portals and SaaS products built around how your company actually works.</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-400 transition-all duration-300 group hover:shadow-glow">
+            <div class="flex items-start space-x-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-brand-600/30 to-brand-cyan/20 border border-brand-500/30 text-brand-400 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300"><i data-lucide="layout-dashboard" class="w-7 h-7"></i></div>
+              <div class="space-y-3">
+                <h3 class="text-xl font-bold text-white group-hover:text-brand-400 transition-colors" data-es="Paneles de administración">Admin dashboards</h3>
+                <p class="text-gray-300 text-sm leading-relaxed" data-es="Paneles con autenticación, roles y analítica que convierten tus datos en decisiones, en cualquier pantalla.">Dashboards with authentication, roles and analytics that turn your data into decisions, on any screen.</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-400 transition-all duration-300 group hover:shadow-glow">
+            <div class="flex items-start space-x-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-brand-600/30 to-brand-cyan/20 border border-brand-500/30 text-brand-400 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300"><i data-lucide="cloud" class="w-7 h-7"></i></div>
+              <div class="space-y-3">
+                <h3 class="text-xl font-bold text-white group-hover:text-brand-400 transition-colors" data-es="Backend y nube">Backend &amp; cloud</h3>
+                <p class="text-gray-300 text-sm leading-relaxed" data-es="APIs, bases de datos e infraestructura como código, desplegadas con monitoreo y listas para escalar.">APIs, databases and infrastructure as code, deployed with monitoring and ready to scale.</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-400 transition-all duration-300 group hover:shadow-glow">
+            <div class="flex items-start space-x-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-brand-600/30 to-brand-cyan/20 border border-brand-500/30 text-brand-400 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300"><i data-lucide="network" class="w-7 h-7"></i></div>
+              <div class="space-y-3">
+                <h3 class="text-xl font-bold text-white group-hover:text-brand-400 transition-colors" data-es="Integraciones y modernización">Integrations &amp; modernization</h3>
+                <p class="text-gray-300 text-sm leading-relaxed" data-es="Conecto las herramientas que ya usas, automatizo tareas repetitivas y modernizo sistemas heredados sin detener tu operación.">I connect the tools you already use, automate repetitive work and modernize legacy systems without stopping your operation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <span class="badge live" data-es="En producción">In Prod</span>
-      <h2>Tiendero</h2>
-      <p class="muted" data-es="Una plataforma de gestión para pequeños negocios: inventario, ventas, compras y más, construida y operada por mí.">A management platform for small stores: inventory, sales, purchases and more, built and run by me.</p>
-      <div class="cta">
-        <a class="btn ghost" href="platforms.html#tiendero" data-es="Ver el caso">Read the case study</a>
-        <a class="btn primary" href="https://tiendero.websportal.dev" target="_blank" rel="noopener" data-es="Abrir Tiendero ↗">Open Tiendero ↗</a>
+    <!-- Platforms -->
+    <section id="platforms" class="py-24 bg-dark-bg/50 border-t border-dark-border relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+          <span class="text-xs font-mono font-semibold tracking-wider text-brand-400 uppercase" data-es="Plataformas">Platforms</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-es="Productos que construyo y opero">Products I build and run</h2>
+          <p class="text-gray-400 text-base" data-es="Además del trabajo con clientes, desarrollo mis propias plataformas. Son la mejor muestra de cómo trabajo: en producción, con usuarios reales.">Alongside client work, I develop my own platforms. They're the best proof of how I work: live, with real users.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-400 transition-all duration-300 hover:shadow-glow flex flex-col">
+            <span class="self-start inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-medium mb-4"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span><span data-es="En producción">In production</span></span>
+            <h3 class="text-2xl font-bold text-white mb-2">psupport</h3>
+            <p class="text-gray-300 text-sm leading-relaxed mb-6 flex-1" data-es="Una plataforma de soporte y administración que reúne usuarios, roles, dashboards y analítica en un solo panel.">A support and admin platform that brings users, roles, dashboards and analytics together in one panel.</p>
+            <div class="flex flex-wrap gap-3">
+              <a href="https://psupport.websportal.dev" target="_blank" rel="noopener" class="inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 bg-brand-400 hover:bg-brand-500 rounded-xl transition-colors"><span data-es="Abrir psupport">Open psupport</span><i data-lucide="arrow-up-right" class="w-4 h-4 ml-1.5"></i></a>
+              <a href="platforms.html#psupport" class="inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-300 border border-dark-border hover:border-gray-600 rounded-xl transition-colors" data-es="Ver el caso">Read the case study</a>
+            </div>
+          </div>
+          <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-400 transition-all duration-300 hover:shadow-glow flex flex-col">
+            <span class="self-start inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-medium mb-4"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span><span data-es="En producción">In production</span></span>
+            <h3 class="text-2xl font-bold text-white mb-2">Tiendero</h3>
+            <p class="text-gray-300 text-sm leading-relaxed mb-6 flex-1" data-es="Una plataforma de gestión para pequeños negocios: inventario, ventas, compras, clientes, domicilios y personal en una sola app.">A management platform for small stores: inventory, sales, purchases, customers, deliveries and staff in a single app.</p>
+            <div class="flex flex-wrap gap-3">
+              <a href="https://tiendero.websportal.dev" target="_blank" rel="noopener" class="inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 bg-brand-400 hover:bg-brand-500 rounded-xl transition-colors"><span data-es="Abrir Tiendero">Open Tiendero</span><i data-lucide="arrow-up-right" class="w-4 h-4 ml-1.5"></i></a>
+              <a href="platforms.html#tiendero" class="inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-300 border border-dark-border hover:border-gray-600 rounded-xl transition-colors" data-es="Ver el caso">Read the case study</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section cta-band">
-      <h2 data-es="¿Tienes un proyecto en mente?">Have a project in mind?</h2>
-      <p class="muted" data-es="Cuéntame qué necesitas y te respondo pronto.">Tell me what you need and I'll get back to you soon.</p>
-      <div class="cta">
-        <a class="btn primary" href="contact.html" data-es="Iniciar un proyecto">Start a project</a>
+    <!-- Process -->
+    <section id="process" class="py-24 border-t border-dark-border relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-20 space-y-4">
+          <span class="text-xs font-mono font-semibold tracking-wider text-brand-400 uppercase" data-es="Cómo trabajo">How I work</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-es="Un proceso claro, sin sorpresas">A clear process, no surprises</h2>
+          <p class="text-gray-400 text-base" data-es="Siempre sabrás en qué etapa estamos, qué sigue y cuánto cuesta.">You'll always know where we are, what comes next and what it costs.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="p-6 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/50 transition-all duration-300">
+            <div class="text-4xl font-mono font-extrabold text-brand-400/40 mb-4">01</div>
+            <h3 class="text-xl font-bold text-white mb-3" data-es="Descubrimiento">Discovery</h3>
+            <p class="text-gray-400 text-sm leading-relaxed" data-es="Entendemos tu proceso, tus usuarios y qué significa el éxito. Sales con un alcance y una propuesta claros.">We map your process, your users and what success looks like. You leave with a clear scope and quote.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/50 transition-all duration-300">
+            <div class="text-4xl font-mono font-extrabold text-brand-400/40 mb-4">02</div>
+            <h3 class="text-xl font-bold text-white mb-3" data-es="Diseño">Design</h3>
+            <p class="text-gray-400 text-sm leading-relaxed" data-es="Arquitectura, modelo de datos y pantallas clave, validados contigo antes de escribir una línea de código.">Architecture, data model and key screens, validated with you before a line of code is written.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/50 transition-all duration-300">
+            <div class="text-4xl font-mono font-extrabold text-brand-400/40 mb-4">03</div>
+            <h3 class="text-xl font-bold text-white mb-3" data-es="Desarrollo">Build</h3>
+            <p class="text-gray-400 text-sm leading-relaxed" data-es="Entregas iterativas con demos frecuentes, para que veas avances reales cada semana.">Iterative delivery with frequent demos, so you see real progress every week.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/50 transition-all duration-300">
+            <div class="text-4xl font-mono font-extrabold text-brand-400/40 mb-4">04</div>
+            <h3 class="text-xl font-bold text-white mb-3" data-es="Lanzamiento y soporte">Launch &amp; support</h3>
+            <p class="text-gray-400 text-sm leading-relaxed" data-es="Despliegue, monitoreo y entrega completa del código y la documentación. Mantenimiento continuo si lo necesitas.">Deployment, monitoring and a full handover of code and docs. Ongoing maintenance if you need it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="py-24 relative overflow-hidden">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="relative rounded-3xl bg-gradient-to-r from-dark-card via-gray-900 to-dark-card border border-brand-500/30 p-8 sm:p-12 lg:p-16 text-center shadow-2xl overflow-hidden">
+          <div class="absolute -top-24 -right-24 w-72 h-72 bg-brand-500/20 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="max-w-3xl mx-auto space-y-6 relative z-10">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight" data-es="¿Tienes un proyecto en mente?">Have a project in mind?</h2>
+            <p class="text-lg text-gray-300 max-w-xl mx-auto" data-es="Cuéntame qué necesitas. Te respondo personalmente, normalmente en uno o dos días hábiles.">Tell me what you need. I'll reply personally, usually within one or two business days.</p>
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href="contact.html" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold text-gray-900 bg-brand-400 hover:bg-brand-500 rounded-xl transition-all duration-300 shadow-glow hover:shadow-glow-cyan transform hover:-translate-y-0.5">
+                <span data-es="Iniciar un proyecto">Start a project</span>
+                <i data-lucide="send" class="w-5 h-5 ml-2"></i>
+              </a>
+            </div>
+            <div class="pt-6 text-xs text-gray-400 font-mono">
+              <span data-es="O escríbeme directamente a:">Or email me directly at:</span>
+              <a href="mailto:ankbape@gmail.com" class="text-brand-400 underline hover:text-brand-100 ml-1">ankbape@gmail.com</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="footer-links">
-      <a href="https://www.linkedin.com/in/andres-badel-b40333116/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:ankbape@gmail.com">Email</a>
+  <footer class="bg-dark-card border-t border-dark-border py-12 text-sm text-gray-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white font-mono font-bold text-sm" aria-hidden="true">&lt;/&gt;</div>
+          <span class="text-lg font-bold text-white font-mono">websportal<span class="text-brand-400">.dev</span></span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6 font-medium">
+          <a href="services.html" class="hover:text-brand-400 transition-colors" data-es="Servicios">Services</a>
+          <a href="platforms.html" class="hover:text-brand-400 transition-colors" data-es="Plataformas">Platforms</a>
+          <a href="about.html" class="hover:text-brand-400 transition-colors" data-es="Sobre mí">About</a>
+          <a href="contact.html" class="hover:text-brand-400 transition-colors" data-es="Contacto">Contact</a>
+          <a href="https://www.linkedin.com/in/andres-badel-b40333116/" target="_blank" rel="noopener" class="hover:text-brand-400 transition-colors">LinkedIn</a>
+        </div>
+        <div>
+          <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="andres_badel" data-color="#FFDD00" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff"></script>
+        </div>
+      </div>
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-gray-500 border-t border-dark-border pt-6">
+        <p>© <span id="year"></span> websportal.dev · Andrés Badel</p>
+        <p><a href="privacy.html" class="hover:text-brand-400" data-es="Privacidad">Privacy</a> · <a href="terms.html" class="hover:text-brand-400" data-es="Términos">Terms</a></p>
+      </div>
     </div>
-    <div class="bmc-wrap">
-      <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="andres_badel" data-color="#FFDD00" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff"></script>
-    </div>
-    <p class="footer-legal"><a href="privacy.html" data-es="Privacidad">Privacy</a> · <a href="terms.html" data-es="Términos">Terms</a></p>
-    <p>© <span id="year"></span> websportal.dev · Andrés Badel</p>
   </footer>
+
   <script src="script.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

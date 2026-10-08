@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark scroll-smooth">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,119 +13,223 @@
   <meta property="og:description" content="Products built and run by websportal.dev, including psupport and Tiendero, now in production." />
   <meta property="og:url" content="https://websportal.dev/platforms.html" />
   <meta name="twitter:card" content="summary" />
-  <meta name="theme-color" content="#284b63" />
+  <meta name="theme-color" content="#070a13" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+          colors: {
+            brand: { 50: '#f0fdfa', 100: '#ccfbf1', 400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488', 900: '#134e4a', cyan: '#06b6d4', glow: '#00f2fe' },
+            dark: { bg: '#0a0f1d', card: '#111827', cardHover: '#1f2937', border: '#1f293d' }
+          },
+          boxShadow: {
+            'glow': '0 0 25px -5px rgba(20, 184, 166, 0.3)',
+            'glow-cyan': '0 0 30px -5px rgba(6, 182, 212, 0.35)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #070a13; color: #f3f4f6; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+    .bg-grid-pattern { background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px); background-size: 32px 32px; }
+    .glow-effect { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.25; pointer-events: none; }
+    #site-nav.open { display: block; }
+    [data-lang] { color: #9ca3af; }
+    [data-lang][aria-pressed="true"] { color: #fff; background: #0d9488; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0a0f1d; }
+    ::-webkit-scrollbar-thumb { background: #1f293d; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #2dd4bf; }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+    .form-status.ok { color: #34d399; font-weight: 600; }
+    .form-status.error { color: #f87171; }
+  </style>
 </head>
-<body>
-  <header class="nav">
-    <a href="index.html" class="brand" aria-label="websportal.dev home"><span class="brand-mark" aria-hidden="true">&lt;/&gt;</span><span class="brand-name">webs<b>portal</b></span><span class="tld">.dev</span></a>
-    <button id="menu-btn" class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
-    <nav id="site-nav">
-      <a href="services.html" data-es="Servicios">Services</a>
-      <a href="platforms.html" data-es="Plataformas" aria-current="page">Platforms</a>
-      <a href="about.html" data-es="Sobre mí">About</a>
-      <a href="contact.html" data-es="Contacto">Contact</a>
-      <button id="lang-btn" class="lang-btn" type="button" aria-label="Switch language">ES</button>
-      <!-- Owner-only console link: hidden unless unlocked (see script.js) -->
-      <a href="https://console.websportal.dev" id="console-btn" class="console-btn" hidden>console</a>
-    </nav>
+<body class="antialiased selection:bg-brand-500 selection:text-white">
+
+  <div class="glow-effect w-96 h-96 bg-brand-cyan top-[-100px] left-[-100px]"></div>
+  <div class="glow-effect w-[500px] h-[500px] bg-brand-500 top-[30%] right-[-150px]"></div>
+  <div class="glow-effect w-96 h-96 bg-indigo-600 bottom-[10%] left-[-100px]"></div>
+
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-dark-bg/80 border-b border-dark-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center space-x-3 group" aria-label="websportal.dev home">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-cyan flex items-center justify-center text-white font-mono font-bold text-lg shadow-glow group-hover:scale-105 transition-transform duration-300" aria-hidden="true">&lt;/&gt;</div>
+        <span class="text-xl font-bold tracking-tight text-white font-mono">websportal<span class="text-brand-400">.dev</span></span>
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-8 font-medium text-sm text-gray-300">
+        <a href="services.html" class="hover:text-brand-400 transition-colors py-2" data-es="Servicios">Services</a>
+        <a href="platforms.html" class="text-brand-400 transition-colors py-2" aria-current="page" data-es="Plataformas">Platforms</a>
+        <a href="about.html" class="hover:text-brand-400 transition-colors py-2" data-es="Sobre mí">About</a>
+        <a href="contact.html" class="hover:text-brand-400 transition-colors py-2" data-es="Contacto">Contact</a>
+        <!-- Owner-only console link: hidden unless unlocked (see script.js) -->
+        <a href="https://console.websportal.dev" id="console-btn" class="font-mono text-xs text-brand-400 border border-brand-500/40 rounded-lg px-2 py-1" hidden>console</a>
+      </nav>
+
+      <div class="flex items-center space-x-4">
+        <div class="bg-gray-900/80 p-1 rounded-full border border-dark-border flex items-center" role="group" aria-label="Language">
+          <button type="button" data-lang="en" aria-pressed="true" class="px-3 py-1 text-xs font-semibold rounded-full transition-all duration-300 hover:text-white">EN</button>
+          <button type="button" data-lang="es" aria-pressed="false" class="px-3 py-1 text-xs font-semibold rounded-full transition-all duration-300 hover:text-white">ES</button>
+        </div>
+
+        <a href="contact.html" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-gray-900 bg-brand-400 hover:bg-brand-500 rounded-xl transition-all duration-300 shadow-glow hover:shadow-glow-cyan transform hover:-translate-y-0.5">
+          <span data-es="Hablemos">Let's talk</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 ml-1.5"></i>
+        </a>
+
+        <button id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav" class="md:hidden p-2 rounded-lg bg-gray-900 text-gray-300 hover:text-white border border-dark-border">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="site-nav" class="hidden md:hidden bg-dark-card/95 border-b border-dark-border px-4 pt-2 pb-6 space-y-3">
+      <a href="services.html" class="block py-2 text-gray-300 hover:text-brand-400" data-es="Servicios">Services</a>
+      <a href="platforms.html" class="block py-2 text-brand-400" aria-current="page" data-es="Plataformas">Platforms</a>
+      <a href="about.html" class="block py-2 text-gray-300 hover:text-brand-400" data-es="Sobre mí">About</a>
+      <a href="contact.html" class="block py-2 text-gray-300 hover:text-brand-400" data-es="Contacto">Contact</a>
+      <a href="contact.html" class="w-full mt-4 flex items-center justify-center px-4 py-2.5 text-sm font-semibold text-gray-900 bg-brand-400 rounded-xl" data-es="Hablemos">Let's talk</a>
+    </div>
   </header>
 
-  <main>
-    <section class="page-head">
-      <p class="eyebrow" data-es="Plataformas">Platforms</p>
-      <h1 data-es="Mis plataformas">My platforms</h1>
-      <p class="lead" data-es="Productos propios que construyo y opero bajo websportal.dev.">Products I build and run myself under websportal.dev.</p>
-    </section>
-
-    <section id="psupport" class="section first case">
-      <div class="case-head">
-        <div>
-          <span class="badge live" data-es="En producción">In Prod</span>
-          <h2>psupport</h2>
-          <p class="muted" data-es="Una plataforma de soporte y administración con dashboards, usuarios y analítica.">A support &amp; admin platform with dashboards, users and analytics.</p>
+  <main class="pt-20">
+    <section class="relative pt-16 pb-12 md:pt-24 md:pb-16 overflow-hidden bg-grid-pattern">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center space-y-6">
+          <span class="text-xs font-mono font-semibold tracking-wider text-brand-400 uppercase" data-es="Plataformas">Platforms</span>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight" data-es="Mis plataformas">My platforms</h1>
+          <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed" data-es="Productos propios que construyo y opero bajo websportal.dev. En producción, con usuarios reales.">Products I build and run myself under websportal.dev. Live, with real users.</p>
         </div>
-        <a class="btn primary" href="https://psupport.websportal.dev" target="_blank" rel="noopener" data-es="Abrir psupport ↗">Open psupport ↗</a>
       </div>
-      <!-- TODO: add a screenshot, e.g. <img class="shot" src="img/psupport.png" alt="psupport dashboard" /> -->
-      <!-- TODO: refine this case study with real details and numbers -->
-      <div class="grid">
-        <article class="card">
-          <h3 data-es="El problema">The problem</h3>
-          <p data-es="Los equipos de soporte suelen repartir tickets, usuarios y métricas entre varias herramientas desconectadas.">Support teams often juggle tickets, users and metrics across several disconnected tools.</p>
-        </article>
-        <article class="card">
-          <h3 data-es="La solución">The solution</h3>
-          <p data-es="Un solo panel con gestión de usuarios y roles, dashboards y analítica en tiempo real.">A single panel with user and role management, dashboards and live analytics.</p>
-        </article>
-        <article class="card">
-          <h3 data-es="El resultado">The result</h3>
-          <p data-es="Una plataforma en producción, desplegada y mantenida de principio a fin por mí.">A production platform, deployed and maintained end to end by me.</p>
-        </article>
-      </div>
-      <a class="project-link" href="https://psupport.websportal.dev" target="_blank" rel="noopener">psupport.websportal.dev</a>
     </section>
-
-    <section id="tiendero" class="section case">
-      <div class="case-head">
-        <div>
-          <span class="badge live" data-es="En producción">In Prod</span>
-          <h2>Tiendero</h2>
-          <p class="muted" data-es="Una plataforma de gestión para pequeños negocios: inventario, ventas, compras y más.">A management platform for small stores: inventory, sales, purchases and more.</p>
+    <section id="psupport" class="py-20 border-t border-dark-border relative scroll-mt-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+          <div class="space-y-3 max-w-2xl">
+            <span class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-medium"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span><span data-es="En producción">In production</span></span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight font-mono text-brand-400">psupport</h2>
+            <p class="text-gray-300 text-base leading-relaxed" data-es="Una plataforma de soporte y administración con dashboards, usuarios y analítica.">A support &amp; admin platform with dashboards, users and analytics.</p>
+          </div>
+          <a href="https://psupport.websportal.dev" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-gray-900 bg-brand-400 hover:bg-brand-500 rounded-xl transition-all duration-300 shadow-glow hover:shadow-glow-cyan transform hover:-translate-y-0.5 self-start md:self-auto"><span data-es="Abrir psupport">Open psupport</span><i data-lucide="arrow-up-right" class="w-4 h-4 ml-1.5"></i></a>
         </div>
-        <a class="btn primary" href="https://tiendero.websportal.dev" target="_blank" rel="noopener" data-es="Abrir Tiendero ↗">Open Tiendero ↗</a>
-      </div>
-      <!-- TODO: add a screenshot, e.g. <img class="shot" src="img/tiendero.png" alt="Tiendero dashboard" /> -->
-      <div class="grid">
-        <article class="card">
-          <h3 data-es="El problema">The problem</h3>
-          <p data-es="Las tiendas pequeñas suelen llevar inventario, ventas y proveedores en cuadernos u hojas de cálculo.">Small stores often track stock, sales and suppliers in notebooks or spreadsheets.</p>
-        </article>
-        <article class="card">
-          <h3 data-es="La solución">The solution</h3>
-          <p data-es="Una sola app con productos, inventario, ventas, compras, clientes, domicilios, sedes y personal.">One app for products, inventory, sales, purchases, customers, deliveries, locations and staff.</p>
-        </article>
-        <article class="card">
-          <h3 data-es="El resultado">The result</h3>
-          <p data-es="Una plataforma en producción, desplegada y mantenida de principio a fin por mí.">A production platform, deployed and maintained end to end by me.</p>
-        </article>
-      </div>
-      <a class="project-link" href="https://tiendero.websportal.dev" target="_blank" rel="noopener">tiendero.websportal.dev</a>
-    </section>
-
-    <section class="section">
-      <h2 data-es="Próximamente">Coming next</h2>
-      <div class="grid">
-        <article class="card project">
-          <span class="badge soon" data-es="Próximamente">Coming soon</span>
-          <h3 data-es="Próxima plataforma">Next platform</h3>
-          <p data-es="¿Tienes una idea? Podría ser la tuya — hablemos.">Have an idea? It could be yours — let's talk.</p>
-        </article>
+        <!-- TODO: add a screenshot of psupport -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="p-6 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/50 transition-all duration-300">
+            <div class="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center mb-5"><i data-lucide="puzzle" class="w-6 h-6"></i></div>
+            <h3 class="text-xl font-bold text-white mb-2" data-es="El problema">The problem</h3>
+            <p class="text-gray-400 text-sm leading-relaxed" data-es="Los equipos de soporte suelen repartir tickets, usuarios y métricas entre varias herramientas desconectadas.">Support teams often juggle tickets, users and metrics across several disconnected tools.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/50 transition-all duration-300">
+            <div class="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center mb-5"><i data-lucide="layout-dashboard" class="w-6 h-6"></i></div>
+            <h3 class="text-xl font-bold text-white mb-2" data-es="La solución">The solution</h3>
+            <p class="text-gray-400 text-sm leading-relaxed" data-es="Un solo panel con gestión de usuarios y roles, dashboards y analítica en tiempo real.">A single panel with user and role management, dashboards and live analytics.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/50 transition-all duration-300">
+            <div class="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center mb-5"><i data-lucide="rocket" class="w-6 h-6"></i></div>
+            <h3 class="text-xl font-bold text-white mb-2" data-es="El resultado">The result</h3>
+            <p class="text-gray-400 text-sm leading-relaxed" data-es="Una plataforma en producción, desplegada y mantenida de principio a fin por mí.">A production platform, deployed and maintained end to end by me.</p>
+          </div>
+        </div>
+        <a href="https://psupport.websportal.dev" target="_blank" rel="noopener" class="inline-flex items-center mt-8 text-sm font-mono text-brand-400 hover:text-brand-100 transition-colors"><i data-lucide="globe" class="w-4 h-4 mr-2"></i>psupport.websportal.dev</a>
       </div>
     </section>
-
-    <section class="section cta-band">
-      <h2 data-es="¿Tienes un proyecto en mente?">Have a project in mind?</h2>
-      <p class="muted" data-es="Cuéntame qué necesitas y te respondo pronto.">Tell me what you need and I'll get back to you soon.</p>
-      <div class="cta">
-        <a class="btn primary" href="contact.html" data-es="Iniciar un proyecto">Start a project</a>
+    <section id="tiendero" class="py-20 border-t border-dark-border relative scroll-mt-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+          <div class="space-y-3 max-w-2xl">
+            <span class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-medium"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span><span data-es="En producción">In production</span></span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight font-mono text-emerald-400">Tiendero</h2>
+            <p class="text-gray-300 text-base leading-relaxed" data-es="Una plataforma de gestión para pequeños negocios: inventario, ventas, compras y más.">A management platform for small stores: inventory, sales, purchases and more.</p>
+          </div>
+          <a href="https://tiendero.websportal.dev" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-gray-900 bg-brand-400 hover:bg-brand-500 rounded-xl transition-all duration-300 shadow-glow hover:shadow-glow-cyan transform hover:-translate-y-0.5 self-start md:self-auto"><span data-es="Abrir Tiendero">Open Tiendero</span><i data-lucide="arrow-up-right" class="w-4 h-4 ml-1.5"></i></a>
+        </div>
+        <!-- TODO: add a screenshot of Tiendero -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="p-6 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/50 transition-all duration-300">
+            <div class="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center mb-5"><i data-lucide="notebook-pen" class="w-6 h-6"></i></div>
+            <h3 class="text-xl font-bold text-white mb-2" data-es="El problema">The problem</h3>
+            <p class="text-gray-400 text-sm leading-relaxed" data-es="Las tiendas pequeñas suelen llevar inventario, ventas y proveedores en cuadernos u hojas de cálculo.">Small stores often track stock, sales and suppliers in notebooks or spreadsheets.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/50 transition-all duration-300">
+            <div class="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center mb-5"><i data-lucide="store" class="w-6 h-6"></i></div>
+            <h3 class="text-xl font-bold text-white mb-2" data-es="La solución">The solution</h3>
+            <p class="text-gray-400 text-sm leading-relaxed" data-es="Una sola app con productos, inventario, ventas, compras, clientes, domicilios, sedes y personal.">One app for products, inventory, sales, purchases, customers, deliveries, locations and staff.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/50 transition-all duration-300">
+            <div class="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center mb-5"><i data-lucide="rocket" class="w-6 h-6"></i></div>
+            <h3 class="text-xl font-bold text-white mb-2" data-es="El resultado">The result</h3>
+            <p class="text-gray-400 text-sm leading-relaxed" data-es="Una plataforma en producción, desplegada y mantenida de principio a fin por mí.">A production platform, deployed and maintained end to end by me.</p>
+          </div>
+        </div>
+        <a href="https://tiendero.websportal.dev" target="_blank" rel="noopener" class="inline-flex items-center mt-8 text-sm font-mono text-brand-400 hover:text-brand-100 transition-colors"><i data-lucide="globe" class="w-4 h-4 mr-2"></i>tiendero.websportal.dev</a>
+      </div>
+    </section>
+    <section class="py-20 bg-dark-bg/50 border-t border-dark-border relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12 space-y-4">
+          <span class="text-xs font-mono font-semibold tracking-wider text-brand-400 uppercase" data-es="Próximamente">Coming next</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-es="La próxima plataforma">The next platform</h2>
+        </div>
+        <div class="max-w-xl mx-auto p-8 rounded-2xl bg-dark-card border border-dashed border-dark-border hover:border-brand-400 transition-all duration-300 hover:shadow-glow text-center">
+          <span class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-medium mb-4"><i data-lucide="sparkles" class="w-3.5 h-3.5"></i><span data-es="Próximamente">Coming soon</span></span>
+          <p class="text-gray-300 text-base leading-relaxed" data-es="¿Tienes una idea? Podría ser la tuya, hablemos.">Have an idea? It could be yours. Let's talk.</p>
+        </div>
+      </div>
+    </section>
+    <section class="py-24 relative overflow-hidden">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="relative rounded-3xl bg-gradient-to-r from-dark-card via-gray-900 to-dark-card border border-brand-500/30 p-8 sm:p-12 lg:p-16 text-center shadow-2xl overflow-hidden">
+          <div class="absolute -top-24 -right-24 w-72 h-72 bg-brand-500/20 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="max-w-3xl mx-auto space-y-6 relative z-10">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight" data-es="¿Tienes un proyecto en mente?">Have a project in mind?</h2>
+            <p class="text-lg text-gray-300 max-w-xl mx-auto" data-es="Cuéntame qué necesitas. Te respondo personalmente, normalmente en uno o dos días hábiles.">Tell me what you need. I'll reply personally, usually within one or two business days.</p>
+            <div class="pt-4 flex justify-center">
+              <a href="contact.html" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-gray-900 bg-brand-400 hover:bg-brand-500 rounded-xl transition-all duration-300 shadow-glow hover:shadow-glow-cyan transform hover:-translate-y-0.5 px-8 py-4 text-base">
+                <span data-es="Iniciar un proyecto">Start a project</span>
+                <i data-lucide="send" class="w-5 h-5 ml-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="footer-links">
-      <a href="https://www.linkedin.com/in/andres-badel-b40333116/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:ankbape@gmail.com">Email</a>
+  <footer class="bg-dark-card border-t border-dark-border py-12 text-sm text-gray-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white font-mono font-bold text-sm" aria-hidden="true">&lt;/&gt;</div>
+          <span class="text-lg font-bold text-white font-mono">websportal<span class="text-brand-400">.dev</span></span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6 font-medium">
+          <a href="services.html" class="hover:text-brand-400 transition-colors" data-es="Servicios">Services</a>
+          <a href="platforms.html" class="hover:text-brand-400 transition-colors" data-es="Plataformas">Platforms</a>
+          <a href="about.html" class="hover:text-brand-400 transition-colors" data-es="Sobre mí">About</a>
+          <a href="contact.html" class="hover:text-brand-400 transition-colors" data-es="Contacto">Contact</a>
+          <a href="https://www.linkedin.com/in/andres-badel-b40333116/" target="_blank" rel="noopener" class="hover:text-brand-400 transition-colors">LinkedIn</a>
+        </div>
+        <div>
+          <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="andres_badel" data-color="#FFDD00" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff"></script>
+        </div>
+      </div>
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-gray-500 border-t border-dark-border pt-6">
+        <p>© <span id="year"></span> websportal.dev · Andrés Badel</p>
+        <p><a href="privacy.html" class="hover:text-brand-400" data-es="Privacidad">Privacy</a> · <a href="terms.html" class="hover:text-brand-400" data-es="Términos">Terms</a></p>
+      </div>
     </div>
-    <div class="bmc-wrap">
-      <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="andres_badel" data-color="#FFDD00" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff"></script>
-    </div>
-    <p class="footer-legal"><a href="privacy.html" data-es="Privacidad">Privacy</a> · <a href="terms.html" data-es="Términos">Terms</a></p>
-    <p>© <span id="year"></span> websportal.dev · Andrés Badel</p>
   </footer>
+
   <script src="script.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

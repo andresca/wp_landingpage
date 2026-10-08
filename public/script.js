@@ -22,19 +22,23 @@ document.getElementById("year").textContent = new Date().getFullYear();
 (function () {
   const els = document.querySelectorAll("[data-es]");
   els.forEach((el) => (el.dataset.en = el.innerHTML));
+  // Either a single toggle (#lang-btn) or a pill of [data-lang] buttons.
   const btn = document.getElementById("lang-btn");
+  const pills = document.querySelectorAll("[data-lang]");
 
   function setLang(lang) {
     els.forEach((el) => (el.innerHTML = el.dataset[lang]));
     document.documentElement.lang = lang;
-    btn.textContent = lang === "en" ? "ES" : "EN";
+    if (btn) btn.textContent = lang === "en" ? "ES" : "EN";
+    pills.forEach((p) => p.setAttribute("aria-pressed", String(p.dataset.lang === lang)));
     try { localStorage.setItem("wp_lang", lang); } catch (_) {}
   }
 
   let initial = "en";
   try { initial = localStorage.getItem("wp_lang") || (navigator.language.startsWith("es") ? "es" : "en"); } catch (_) {}
   if (initial === "es") setLang("es");
-  btn.addEventListener("click", () => setLang(document.documentElement.lang === "en" ? "es" : "en"));
+  if (btn) btn.addEventListener("click", () => setLang(document.documentElement.lang === "en" ? "es" : "en"));
+  pills.forEach((p) => p.addEventListener("click", () => setLang(p.dataset.lang)));
 })();
 
 // Mobile menu toggle.
