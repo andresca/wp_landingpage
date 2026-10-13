@@ -59,8 +59,8 @@ document.getElementById("year").textContent = new Date().getFullYear();
   const btn = form.querySelector("button[type=submit]");
   const MSG = {
     sending: { en: "Sending…", es: "Enviando…" },
-    ok: { en: "Your message was sent. I'll be in touch soon!", es: "Tu mensaje fue enviado. ¡Te contactaré pronto!" },
-    error: { en: "Something went wrong. Please try again or email me directly.", es: "Algo salió mal. Inténtalo de nuevo o escríbeme directamente." },
+    ok: { en: "Your message was sent. We'll be in touch soon!", es: "Tu mensaje fue enviado. ¡Te contactaremos pronto!" },
+    error: { en: "Something went wrong. Please try again or email us directly.", es: "Algo salió mal. Inténtalo de nuevo o escríbenos directamente." },
   };
   const show = (key, cls) => {
     status.textContent = MSG[key][document.documentElement.lang === "es" ? "es" : "en"];
@@ -86,4 +86,94 @@ document.getElementById("year").textContent = new Date().getFullYear();
       btn.disabled = false;
     }
   });
+})();
+
+// Visual effects for the main pages: network background, scroll reveal, card spotlight.
+(() => {
+  if (!document.querySelector(".glow-effect")) return; // skip legal pages
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const css = document.createElement("style");
+  css.textContent = `
+    #bg-net { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; transition: opacity .6s; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; transition-delay: var(--d, 0s); }
+    .reveal.in { opacity: 1; transform: none; }
+    .spot { position: relative; overflow: hidden; }
+    .spot::before { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .3s;
+      background: radial-gradient(360px circle at var(--mx) var(--my), rgba(45,212,191,.12), transparent 60%); }
+    .spot:hover::before { opacity: 1; }
+    .spot > * { position: relative; }
+  `;
+  document.head.appendChild(css);
+
+  // Network background
+  const c = document.createElement("canvas");
+  c.id = "bg-net";
+  c.setAttribute("aria-hidden", "true");
+  document.body.prepend(c);
+  const ctx = c.getContext("2d");
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  const D = 140 * dpr;
+  let W, H, pts = [], mouse = { x: -1e4, y: -1e4 };
+  const size = () => {
+    W = c.width = innerWidth * dpr;
+    H = c.height = innerHeight * dpr;
+    const n = Math.min(80, Math.floor((innerWidth * innerHeight) / 16000));
+    pts = Array.from({ length: n }, () => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - 0.5) * 0.4 * dpr, vy: (Math.random() - 0.5) * 0.4 * dpr }));
+  };
+  size();
+  addEventListener("resize", size);
+  addEventListener("pointermove", (e) => { mouse.x = e.clientX * dpr; mouse.y = e.clientY * dpr; });
+  // Dim the network once the hero is scrolled past so content stays readable
+  const dim = () => { c.style.opacity = scrollY > innerHeight * 0.6 ? "0.45" : "1"; };
+  addEventListener("scroll", dim, { passive: true });
+  dim();
+  const draw = () => {
+    ctx.clearRect(0, 0, W, H);
+    for (const p of pts) {
+      if (!reduceMotion) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+        const dm = Math.hypot(p.x - mouse.x, p.y - mouse.y);
+        if (dm < D * 1.4 && dm > 0) { p.x += (p.x - mouse.x) / dm; p.y += (p.y - mouse.y) / dm; }
+      }
+      ctx.fillStyle = "rgba(45,212,191,.7)";
+      ctx.beginPath(); ctx.arc(p.x, p.y, 1.6 * dpr, 0, 7); ctx.fill();
+    }
+    ctx.lineWidth = dpr;
+    for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++) {
+      const a = pts[i], b = pts[j], d = Math.hypot(a.x - b.x, a.y - b.y);
+      if (d < D) {
+        ctx.strokeStyle = `rgba(6,182,212,${(1 - d / D) * 0.3})`;
+        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+      }
+    }
+    if (!reduceMotion && !document.hidden) requestAnimationFrame(draw);
+  };
+  draw();
+  document.addEventListener("visibilitychange", () => { if (!document.hidden && !reduceMotion) draw(); });
+
+  // Cursor spotlight on cards
+  document.querySelectorAll("main .rounded-2xl.bg-dark-card").forEach((card) => {
+    card.classList.add("spot");
+    card.addEventListener("pointermove", (e) => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty("--mx", `${e.clientX - r.left}px`);
+      card.style.setProperty("--my", `${e.clientY - r.top}px`);
+    });
+  });
+
+  // Fade sections and cards in as they scroll into view (skip the hero)
+  if (reduceMotion || !("IntersectionObserver" in window)) return;
+  const sections = [...document.querySelectorAll("main > section")].slice(1);
+  const targets = [];
+  sections.forEach((s) => {
+    s.querySelectorAll(".text-center.max-w-2xl, .max-w-3xl, h2").forEach((el) => targets.push(el));
+    s.querySelectorAll(".grid > *").forEach((el, i) => { el.style.setProperty("--d", `${(i % 4) * 0.1}s`); targets.push(el); });
+  });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  new Set(targets).forEach((el) => { el.classList.add("reveal"); io.observe(el); });
 })();
