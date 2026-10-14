@@ -7,7 +7,10 @@
 
 const DEFAULT_TO = "ankbape+websportal@gmail.com";
 const DEFAULT_FROM = "websportal contact <ankbape@gmail.com>";
-const LIMITS = { name: 100, email: 200, company: 120, message: 5000 };
+const LIMITS = {
+  name: 100, email: 200, company: 120, message: 5000,
+  source: 40, stage: 40, services: 300, timeline: 40, budget: 40,
+};
 
 export async function onRequestPost({ request, env }) {
   let data;
@@ -29,7 +32,11 @@ export async function onRequestPost({ request, env }) {
     return json({ ok: false, error: "too_long" }, 400);
   }
 
-  const subject = `New inquiry — ${f.name}${f.company ? ` (${f.company})` : ""}`;
+  const subject = `New inquiry — ${f.name}${f.company ? ` (${f.company})` : ""}${f.stage ? ` · ${f.stage}` : ""}`;
+  const details = [
+    ["Source", f.source], ["Stage", f.stage], ["Needs", f.services],
+    ["Timeline", f.timeline], ["Budget", f.budget],
+  ].filter(([, v]) => v);
   const raw = buildMime({
     from: env.CONTACT_FROM || DEFAULT_FROM,
     to: env.CONTACT_TO || DEFAULT_TO,
@@ -37,7 +44,7 @@ export async function onRequestPost({ request, env }) {
     replyTo: `"${f.name.replace(/["\\\r\n]/g, "")}" <${f.email.replace(/[\r\n<>]/g, "")}>`,
     subject,
     text: `${f.message}\n\n— ${f.name}${f.company ? `, ${f.company}` : ""}\n${f.email}`,
-    html: renderHtml(f),
+    html: renderHtml(f, details),
   });
 
   try {
@@ -114,7 +121,7 @@ function esc(s) {
 }
 
 // Email-client-safe HTML: tables + inline styles, site palette.
-function renderHtml(f) {
+function renderHtml(f, details) {
   const row = (label, value) => `
     <tr>
       <td style="padding:6px 0;width:90px;color:#3c6e71;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;vertical-align:top;">${label}</td>
@@ -136,6 +143,7 @@ function renderHtml(f) {
             ${row("Name", esc(f.name))}
             ${row("Email", `<a href="mailto:${esc(f.email)}" style="color:#284b63;">${esc(f.email)}</a>`)}
             ${f.company ? row("Company", esc(f.company)) : ""}
+            ${details.map(([k, v]) => row(k, esc(v))).join("")}
           </table>
         </td></tr>
         <tr><td style="padding:8px 28px 24px;">

@@ -78,7 +78,6 @@ h1 span { color: var(--teal); }
 .btn.primary { background: var(--navy); color: var(--white); }
 .btn.primary:hover { background: var(--teal); }
 .btn.ghost { border: 2px solid var(--navy); color: var(--navy); }
-.btn.coffee { background: #ffdd00; color: #000; }
 
 .section { padding: 72px 0; border-top: 1px solid var(--gray); }
 h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); color: var(--navy); margin-bottom: 10px; }
@@ -195,7 +194,6 @@ footer { background: var(--charcoal); color: var(--gray); text-align: center; pa
 .contact-side { display: grid; gap: 12px; }
 .contact-side h3 { color: var(--navy); margin-bottom: 4px; }
 .contact-side .btn { text-align: center; }
-footer .bmc-wrap { display: flex; justify-content: center; margin: 6px 0 14px; }
 
 /* ---- Contact form status ---- */
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }

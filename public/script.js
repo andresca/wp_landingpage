@@ -22,12 +22,15 @@ document.getElementById("year").textContent = new Date().getFullYear();
 (function () {
   const els = document.querySelectorAll("[data-es]");
   els.forEach((el) => (el.dataset.en = el.innerHTML));
+  const phs = document.querySelectorAll("[data-es-placeholder]");
+  phs.forEach((el) => (el.dataset.enPlaceholder = el.placeholder));
   // Either a single toggle (#lang-btn) or a pill of [data-lang] buttons.
   const btn = document.getElementById("lang-btn");
   const pills = document.querySelectorAll("[data-lang]");
 
   function setLang(lang) {
     els.forEach((el) => (el.innerHTML = el.dataset[lang]));
+    phs.forEach((el) => (el.placeholder = lang === "es" ? el.dataset.esPlaceholder : el.dataset.enPlaceholder));
     document.documentElement.lang = lang;
     if (btn) btn.textContent = lang === "en" ? "ES" : "EN";
     pills.forEach((p) => p.setAttribute("aria-pressed", String(p.dataset.lang === lang)));
@@ -51,7 +54,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
   });
 })();
 
-// Contact form: posts to the Pages Function at /api/contact, which emails via Resend.
+// Contact form: posts to the Pages Function at /api/contact, which emails via Gmail.
 (function () {
   const form = document.getElementById("contact-form");
   if (!form) return;
@@ -67,6 +70,12 @@ document.getElementById("year").textContent = new Date().getFullYear();
     status.className = `form-status ${cls || ""}`;
   };
 
+  // Object.fromEntries keeps only the last checkbox, so join multi-selects.
+  const payload = () => {
+    const fd = new FormData(form);
+    return { ...Object.fromEntries(fd), services: fd.getAll("services").join(", ") };
+  };
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     btn.disabled = true;
@@ -75,7 +84,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+        body: JSON.stringify(payload()),
       });
       if (!res.ok) throw new Error(res.status);
       form.reset();

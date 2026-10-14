@@ -110,20 +110,67 @@
         <div class="max-w-3xl mx-auto text-center space-y-6">
           <span class="text-xs font-mono font-semibold tracking-wider text-brand-400 uppercase" data-es="Contacto">Contact</span>
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight" data-es="Trabajemos juntos">Let's work together</h1>
-          <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed" data-es="Cuéntanos sobre tu proyecto, o simplemente saluda. Te respondemos personalmente, normalmente en uno o dos días hábiles.">Tell us about your project, or just say hi. We'll reply personally, usually within one or two business days.</p>
+          <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed" data-es="Cuéntanos sobre tu proyecto: quién eres, en qué etapa está y qué necesitas. Te respondemos personalmente, normalmente en uno o dos días hábiles.">Tell us about your project: who you are, where it stands and what you need. We'll reply personally, usually within one or two business days.</p>
         </div>
       </div>
     </section>
     <section class="pb-24 relative">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-12 gap-8">
-          <form id="contact-form" class="lg:col-span-8 p-6 sm:p-8 rounded-2xl bg-dark-card border border-dark-border space-y-5">
+          <form id="contact-form" class="lg:col-span-8 p-6 sm:p-8 rounded-2xl bg-dark-card border border-dark-border space-y-6">
             <div class="grid sm:grid-cols-2 gap-5">
               <label class="block text-sm font-medium text-gray-300"><span data-es="Nombre">Name</span><input name="name" required autocomplete="name" class="mt-2 w-full rounded-xl bg-gray-900/60 border border-dark-border px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-500/30 transition-colors" /></label>
               <label class="block text-sm font-medium text-gray-300"><span data-es="Correo">Email</span><input name="email" type="email" required autocomplete="email" class="mt-2 w-full rounded-xl bg-gray-900/60 border border-dark-border px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-500/30 transition-colors" /></label>
             </div>
-            <label class="block text-sm font-medium text-gray-300"><span data-es="Empresa (opcional)">Company (optional)</span><input name="company" autocomplete="organization" class="mt-2 w-full rounded-xl bg-gray-900/60 border border-dark-border px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-500/30 transition-colors" /></label>
-            <label class="block text-sm font-medium text-gray-300"><span data-es="Tu proyecto">Your project</span><textarea name="message" rows="6" required class="mt-2 w-full rounded-xl bg-gray-900/60 border border-dark-border px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-500/30 transition-colors resize-y"></textarea></label>
+            <fieldset class="space-y-3">
+              <legend class="text-sm font-medium text-gray-300"><span data-es="¿Quién nos escribe?">Who's reaching out?</span></legend>
+              <div class="flex flex-wrap gap-2">
+                <label><input type="radio" name="source" value="Company" required class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="building-2" class="w-4 h-4 text-brand-400"></i><span data-es="Empresa">Company</span></span></label>
+                <label><input type="radio" name="source" value="Startup" class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="rocket" class="w-4 h-4 text-brand-400"></i><span data-es="Startup">Startup</span></span></label>
+                <label><input type="radio" name="source" value="Agency" class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="briefcase" class="w-4 h-4 text-brand-400"></i><span data-es="Agencia / socio">Agency / partner</span></span></label>
+                <label><input type="radio" name="source" value="Personal project" class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="user" class="w-4 h-4 text-brand-400"></i><span data-es="Proyecto personal">Personal project</span></span></label>
+              </div>
+            </fieldset>
+            <label class="block text-sm font-medium text-gray-300"><span data-es="Empresa u organización (opcional)">Company or organization (optional)</span><input name="company" autocomplete="organization" class="mt-2 w-full rounded-xl bg-gray-900/60 border border-dark-border px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-500/30 transition-colors" /></label>
+            <fieldset class="space-y-3">
+              <legend class="text-sm font-medium text-gray-300"><span data-es="¿En qué etapa está el proyecto?">Where does the project stand?</span></legend>
+              <div class="flex flex-wrap gap-2">
+                <label><input type="radio" name="stage" value="New idea" required class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="lightbulb" class="w-4 h-4 text-brand-400"></i><span data-es="Idea nueva — explorémosla">New idea — let's explore it</span></span></label>
+                <label><input type="radio" name="stage" value="In progress" class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="git-branch" class="w-4 h-4 text-brand-400"></i><span data-es="Proyecto existente para continuar">Existing project to continue</span></span></label>
+                <label><input type="radio" name="stage" value="Live product" class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="activity" class="w-4 h-4 text-brand-400"></i><span data-es="Producto en producción para mejorar o mantener">Live product to improve or maintain</span></span></label>
+              </div>
+            </fieldset>
+            <fieldset class="space-y-3">
+              <legend class="text-sm font-medium text-gray-300"><span data-es="¿Qué necesitas?">What do you need?</span> <span class="text-gray-500 font-normal" data-es="(elige todas las que apliquen)">(select all that apply)</span></legend>
+              <div class="flex flex-wrap gap-2">
+                <label><input type="checkbox" name="services" value="Website" class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="globe" class="w-4 h-4 text-brand-400"></i><span data-es="Sitio web / landing">Website / landing</span></span></label>
+                <label><input type="checkbox" name="services" value="Web app" class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="layout-dashboard" class="w-4 h-4 text-brand-400"></i><span data-es="Aplicación web">Web app</span></span></label>
+                <label><input type="checkbox" name="services" value="Mobile app" class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="smartphone" class="w-4 h-4 text-brand-400"></i><span data-es="App móvil">Mobile app</span></span></label>
+                <label><input type="checkbox" name="services" value="Backend / API" class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="server" class="w-4 h-4 text-brand-400"></i><span data-es="Backend / API">Backend / API</span></span></label>
+                <label><input type="checkbox" name="services" value="Integrations / automation" class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="workflow" class="w-4 h-4 text-brand-400"></i><span data-es="Integraciones / automatización">Integrations / automation</span></span></label>
+                <label><input type="checkbox" name="services" value="Consulting" class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="message-circle" class="w-4 h-4 text-brand-400"></i><span data-es="Consultoría / revisión de código">Consulting / code review</span></span></label>
+              </div>
+            </fieldset>
+            <div class="grid sm:grid-cols-2 gap-5">
+              <label class="block text-sm font-medium text-gray-300"><span data-es="Plazo">Timeline</span>
+              <select name="timeline" class="mt-2 w-full rounded-xl bg-gray-900/60 border border-dark-border px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-500/30 transition-colors">
+                <option value="" data-es="Selecciona una opción">Select an option</option>
+                <option value="ASAP" data-es="Lo antes posible">As soon as possible</option>
+                <option value="1-3 months" data-es="1–3 meses">1–3 months</option>
+                <option value="3-6 months" data-es="3–6 meses">3–6 months</option>
+                <option value="Flexible" data-es="Flexible / sin prisa">Flexible / no rush</option>
+              </select></label>
+              <label class="block text-sm font-medium text-gray-300"><span data-es="Presupuesto estimado">Estimated budget</span>
+              <select name="budget" class="mt-2 w-full rounded-xl bg-gray-900/60 border border-dark-border px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-500/30 transition-colors">
+                <option value="" data-es="Selecciona una opción">Select an option</option>
+                <option value="< $2k" data-es="Menos de $2k">Under $2k</option>
+                <option value="$2k-$10k" data-es="$2k – $10k">$2k – $10k</option>
+                <option value="$10k-$30k" data-es="$10k – $30k">$10k – $30k</option>
+                <option value="$30k+" data-es="$30k+">$30k+</option>
+                <option value="Not sure" data-es="Aún no lo sé">Not sure yet</option>
+              </select></label>
+            </div>
+            <label class="block text-sm font-medium text-gray-300"><span data-es="Cuéntanos sobre tu proyecto">Tell us about your project</span><textarea name="message" rows="6" required data-es-placeholder="¿Qué quieres construir, para quién, y qué existe hoy (sitio, código, diseños)? Enlaces bienvenidos." placeholder="What do you want to build, who is it for, and what exists today (site, code, designs)? Links welcome." class="mt-2 w-full rounded-xl bg-gray-900/60 border border-dark-border px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-500/30 transition-colors resize-y"></textarea></label>
             <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
             <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-gray-900 bg-brand-400 hover:bg-brand-500 rounded-xl transition-all duration-300 shadow-glow hover:shadow-glow-cyan transform hover:-translate-y-0.5 px-8 disabled:opacity-60 disabled:cursor-wait">
               <span data-es="Enviar mensaje">Send message</span>
@@ -169,9 +216,6 @@
           <a href="about.html" class="hover:text-brand-400 transition-colors" data-es="Nosotros">About</a>
           <a href="contact.html" class="hover:text-brand-400 transition-colors" data-es="Contacto">Contact</a>
           <a href="https://www.linkedin.com/in/andres-badel-b40333116/" target="_blank" rel="noopener" class="hover:text-brand-400 transition-colors">LinkedIn</a>
-        </div>
-        <div>
-          <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="andres_badel" data-color="#FFDD00" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff"></script>
         </div>
       </div>
       <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-gray-500 border-t border-dark-border pt-6">
