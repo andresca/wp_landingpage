@@ -367,3 +367,4 @@ form.fm { padding: clamp(20px, 3.5vw, 36px); display: grid; gap: 26px; }
 }
 [hidden] { display: none !important; }
 .step-title { margin-bottom: 4px; }
+.lead strong { color: var(--ink); font-weight: 600; }
