@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "skills": {
+    "design-taste-frontend": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/taste-skill/SKILL.md",
+      "computedHash": "048a9bff8064f1efa51c2733558428ac93a0d8398e33ad11e7b68500f8e0525f"
+    },
+    "design-taste-frontend-v1": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/taste-skill-v1/SKILL.md",
+      "computedHash": "6b8732b4b7455aac97ed9c3c3f855c228d75afaac07319ca0eeb7464c2239a84"
+    },
+    "design-taste-frontend-v2-experimental": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/taste-skill-v2-experimental/SKILL.md",
+      "computedHash": "624a1a1d20273874858817bfb750c11e602fbbc42d09ddd95a8dbfc36c695a6c"
+    },
+    "gpt-taste": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/gpt-tasteskill/SKILL.md",
+      "computedHash": "f1c03a122783ba87e987264ee7a079516a2edc582324d7f35dfb5b34ac1bef07"
+    },
+    "high-end-visual-design": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/soft-skill/SKILL.md",
+      "computedHash": "6d03b1fc1798e13d0b5368b4a6135319503d6b9f39062ecfa0ddf8f6bc333508"
+    },
+    "industrial-brutalist-ui": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/brutalist-skill/SKILL.md",
+      "computedHash": "f5f5fbe2b2a143f0205fad49ce169132921dc19d7cf2d5fa7e31a6295a116c3a"
+    },
+    "minimalist-ui": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/minimalist-skill/SKILL.md",
+      "computedHash": "230a0028435595fdc5cdbbf046adc57babc31e94da9af39d6553f1d68a34f6f9"
+    },
+    "stitch-design-taste": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/stitch-skill/SKILL.md",
+      "computedHash": "bc6a5d5406a4f35ae143939f8e66757c1475dc16c3fe38e750d37bd01e2a3421"
+    }
+  }
+}
