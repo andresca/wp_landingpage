@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Contact · websportal.dev</title>
   <meta name="description" content="Start a project with the websportal.dev team." />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
@@ -13,219 +13,175 @@
   <meta property="og:description" content="Start a project with the websportal.dev team." />
   <meta property="og:url" content="https://websportal.dev/contact.html" />
   <meta name="twitter:card" content="summary" />
-  <meta name="theme-color" content="#070a13" />
+  <meta name="theme-color" content="#0A1120" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
-          colors: {
-            brand: { 50: '#f0fdfa', 100: '#ccfbf1', 400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488', 900: '#134e4a', cyan: '#06b6d4', glow: '#00f2fe' },
-            dark: { bg: '#0a0f1d', card: '#111827', cardHover: '#1f2937', border: '#1f293d' }
-          },
-          boxShadow: {
-            'glow': '0 0 25px -5px rgba(20, 184, 166, 0.3)',
-            'glow-cyan': '0 0 30px -5px rgba(6, 182, 212, 0.35)'
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    html { overflow-x: clip; }
-    body { background-color: #070a13; color: #f3f4f6; font-family: 'Inter', sans-serif; overflow-x: hidden; }
-    .bg-grid-pattern { background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px); background-size: 32px 32px; }
-    .glow-effect { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.25; pointer-events: none; }
-    #site-nav.open { display: block; }
-    [data-lang] { color: #9ca3af; }
-    [data-lang][aria-pressed="true"] { color: #fff; background: #0d9488; }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #0a0f1d; }
-    ::-webkit-scrollbar-thumb { background: #1f293d; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #2dd4bf; }
-    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
-    .form-status.ok { color: #34d399; font-weight: 600; }
-    .form-status.error { color: #f87171; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Schibsted+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="antialiased selection:bg-brand-500 selection:text-white">
-
-  <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-    <div class="glow-effect w-96 h-96 bg-brand-cyan top-[-100px] left-[-100px]"></div>
-    <div class="glow-effect w-[500px] h-[500px] bg-brand-500 top-[30%] right-[-150px]"></div>
-    <div class="glow-effect w-96 h-96 bg-indigo-600 bottom-[10%] left-[-100px]"></div>
-  </div>
-
-  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-dark-bg/80 border-b border-dark-border/60">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-2 sm:gap-3 group min-w-0" aria-label="websportal.dev home">
-        <div class="w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-cyan flex items-center justify-center text-white font-mono font-bold text-lg shadow-glow group-hover:scale-105 transition-transform duration-300" aria-hidden="true">&lt;/&gt;</div>
-        <span class="text-sm min-[360px]:text-base sm:text-xl font-bold tracking-tight text-white font-mono">websportal<span class="text-brand-400">.dev</span></span>
-      </a>
-
-      <nav class="hidden md:flex items-center space-x-8 font-medium text-sm text-gray-300">
-        <a href="services.html" class="hover:text-brand-400 transition-colors py-2" data-es="Servicios">Services</a>
-        <a href="platforms.html" class="hover:text-brand-400 transition-colors py-2" data-es="Plataformas">Platforms</a>
-        <a href="about.html" class="hover:text-brand-400 transition-colors py-2" data-es="Nosotros">About</a>
-        <a href="contact.html" class="text-brand-400 transition-colors py-2" aria-current="page" data-es="Contacto">Contact</a>
+<body data-bg="stars">
+  <header class="nav">
+    <div class="container nav-in">
+      <a href="index.html" class="brand" aria-label="websportal.dev home"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x="1" y="1" width="28" height="28" fill="none" stroke="#2DD4BF" stroke-width="1.5"/><path d="M10 10.5 6 15l4 4.5M20 10.5l4 4.5-4 4.5M16.8 8.5l-3.6 13" fill="none" stroke="#E6EDF5" stroke-width="1.6" stroke-linecap="square"/><rect x="25" y="3" width="2.5" height="2.5" fill="#F5B43C"/></svg><span>websportal<em>.dev</em></span></a>
+      <nav id="site-nav" class="nav-links" aria-label="Main">
+        <a href="services.html" data-es="Servicios">Services</a>
+        <a href="platforms.html" data-es="Plataformas">Platforms</a>
+        <a href="about.html" data-es="Nosotros">About</a>
+        <a href="contact.html" aria-current="page" data-es="Contacto">Contact</a>
         <!-- Owner-only console link: hidden unless unlocked (see script.js) -->
-        <a href="https://console.websportal.dev" id="console-btn" class="font-mono text-xs text-brand-400 border border-brand-500/40 rounded-lg px-2 py-1" hidden>console</a>
+        <a href="https://console.websportal.dev" id="console-btn" class="console-btn" hidden>console</a>
+        <a href="contact.html" class="btn btn-primary nav-cta" data-es="Iniciar un proyecto">Start a project</a>
       </nav>
-
-      <div class="flex items-center gap-2 sm:gap-4 flex-shrink-0">
-        <div class="bg-gray-900/80 p-1 rounded-full border border-dark-border flex items-center" role="group" aria-label="Language">
-          <button type="button" data-lang="en" aria-pressed="true" class="px-2.5 sm:px-3 py-1 text-xs font-semibold rounded-full transition-all duration-300 hover:text-white">EN</button>
-          <button type="button" data-lang="es" aria-pressed="false" class="px-2.5 sm:px-3 py-1 text-xs font-semibold rounded-full transition-all duration-300 hover:text-white">ES</button>
+      <div class="nav-right">
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang="es" aria-pressed="false">ES</button>
         </div>
-
-        <a href="contact.html" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-gray-900 bg-brand-400 hover:bg-brand-500 rounded-xl transition-all duration-300 shadow-glow hover:shadow-glow-cyan transform hover:-translate-y-0.5">
-          <span data-es="Hablemos">Let's talk</span>
-          <i data-lucide="arrow-right" class="w-4 h-4 ml-1.5"></i>
-        </a>
-
-        <button id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav" class="md:hidden p-2 rounded-lg bg-gray-900 text-gray-300 hover:text-white border border-dark-border">
-          <i data-lucide="menu" class="w-6 h-6"></i>
-        </button>
+        <a href="contact.html" class="btn btn-primary btn-sm"><span data-es="Iniciar un proyecto">Start a project</span><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        <button id="menu-btn" class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
       </div>
-    </div>
-
-    <div id="site-nav" class="hidden md:hidden bg-dark-card/95 border-b border-dark-border px-4 pt-2 pb-6 space-y-3">
-      <a href="services.html" class="block py-2 text-gray-300 hover:text-brand-400" data-es="Servicios">Services</a>
-      <a href="platforms.html" class="block py-2 text-gray-300 hover:text-brand-400" data-es="Plataformas">Platforms</a>
-      <a href="about.html" class="block py-2 text-gray-300 hover:text-brand-400" data-es="Nosotros">About</a>
-      <a href="contact.html" class="block py-2 text-brand-400" aria-current="page" data-es="Contacto">Contact</a>
-      <a href="contact.html" class="w-full mt-4 flex items-center justify-center px-4 py-2.5 text-sm font-semibold text-gray-900 bg-brand-400 rounded-xl" data-es="Hablemos">Let's talk</a>
     </div>
   </header>
 
-  <main class="pt-20">
-    <section class="relative pt-16 pb-12 md:pt-24 md:pb-16 overflow-hidden bg-grid-pattern">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto text-center space-y-6">
-          <span class="text-xs font-mono font-semibold tracking-wider text-brand-400 uppercase" data-es="Contacto">Contact</span>
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight" data-es="Trabajemos juntos">Let's work together</h1>
-          <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed" data-es="Cuéntanos sobre tu proyecto: quién eres, en qué etapa está y qué necesitas. Te respondemos personalmente, normalmente en uno o dos días hábiles.">Tell us about your project: who you are, where it stands and what you need. We'll reply personally, usually within one or two business days.</p>
-        </div>
-      </div>
+  <main>
+    <section class="container page-hero">
+      <span class="eyebrow" data-es="Contacto">Contact</span>
+      <h1 data-es="Trabajemos juntos">Let's work together</h1>
+      <p class="lead" data-es="Cuéntanos sobre tu proyecto en tres pasos cortos. Un desarrollador lo lee y te responde personalmente, normalmente en uno o dos días hábiles.">Tell us about your project in three short steps. A developer reads it and replies personally, usually within one or two business days.</p>
     </section>
-    <section class="pb-24 relative">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-12 gap-8">
-          <form id="contact-form" class="lg:col-span-8 p-6 sm:p-8 rounded-2xl bg-dark-card border border-dark-border space-y-6">
-            <div class="grid sm:grid-cols-2 gap-5">
-              <label class="block text-sm font-medium text-gray-300"><span data-es="Nombre">Name</span><input name="name" required autocomplete="name" class="mt-2 w-full rounded-xl bg-gray-900/60 border border-dark-border px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-500/30 transition-colors" /></label>
-              <label class="block text-sm font-medium text-gray-300"><span data-es="Correo">Email</span><input name="email" type="email" required autocomplete="email" class="mt-2 w-full rounded-xl bg-gray-900/60 border border-dark-border px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-500/30 transition-colors" /></label>
-            </div>
-            <fieldset class="space-y-3">
-              <legend class="text-sm font-medium text-gray-300"><span data-es="¿Quién nos escribe?">Who's reaching out?</span></legend>
-              <div class="flex flex-wrap gap-2">
-                <label><input type="radio" name="source" value="Company" required class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="building-2" class="w-4 h-4 text-brand-400"></i><span data-es="Empresa">Company</span></span></label>
-                <label><input type="radio" name="source" value="Startup" class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="rocket" class="w-4 h-4 text-brand-400"></i><span data-es="Startup">Startup</span></span></label>
-                <label><input type="radio" name="source" value="Agency" class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="briefcase" class="w-4 h-4 text-brand-400"></i><span data-es="Agencia / socio">Agency / partner</span></span></label>
-                <label><input type="radio" name="source" value="Personal project" class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="user" class="w-4 h-4 text-brand-400"></i><span data-es="Proyecto personal">Personal project</span></span></label>
-              </div>
-            </fieldset>
-            <label class="block text-sm font-medium text-gray-300"><span data-es="Empresa u organización (opcional)">Company or organization (optional)</span><input name="company" autocomplete="organization" class="mt-2 w-full rounded-xl bg-gray-900/60 border border-dark-border px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-500/30 transition-colors" /></label>
-            <fieldset class="space-y-3">
-              <legend class="text-sm font-medium text-gray-300"><span data-es="¿En qué etapa está el proyecto?">Where does the project stand?</span></legend>
-              <div class="flex flex-wrap gap-2">
-                <label><input type="radio" name="stage" value="New idea" required class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="lightbulb" class="w-4 h-4 text-brand-400"></i><span data-es="Idea nueva — explorémosla">New idea — let's explore it</span></span></label>
-                <label><input type="radio" name="stage" value="In progress" class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="git-branch" class="w-4 h-4 text-brand-400"></i><span data-es="Proyecto existente para continuar">Existing project to continue</span></span></label>
-                <label><input type="radio" name="stage" value="Live product" class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="activity" class="w-4 h-4 text-brand-400"></i><span data-es="Producto en producción para mejorar o mantener">Live product to improve or maintain</span></span></label>
-              </div>
-            </fieldset>
-            <fieldset class="space-y-3">
-              <legend class="text-sm font-medium text-gray-300"><span data-es="¿Qué necesitas?">What do you need?</span> <span class="text-gray-500 font-normal" data-es="(elige todas las que apliquen)">(select all that apply)</span></legend>
-              <div class="flex flex-wrap gap-2">
-                <label><input type="checkbox" name="services" value="Website" class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="globe" class="w-4 h-4 text-brand-400"></i><span data-es="Sitio web / landing">Website / landing</span></span></label>
-                <label><input type="checkbox" name="services" value="Web app" class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="layout-dashboard" class="w-4 h-4 text-brand-400"></i><span data-es="Aplicación web">Web app</span></span></label>
-                <label><input type="checkbox" name="services" value="Mobile app" class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="smartphone" class="w-4 h-4 text-brand-400"></i><span data-es="App móvil">Mobile app</span></span></label>
-                <label><input type="checkbox" name="services" value="Backend / API" class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="server" class="w-4 h-4 text-brand-400"></i><span data-es="Backend / API">Backend / API</span></span></label>
-                <label><input type="checkbox" name="services" value="Integrations / automation" class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="workflow" class="w-4 h-4 text-brand-400"></i><span data-es="Integraciones / automatización">Integrations / automation</span></span></label>
-                <label><input type="checkbox" name="services" value="Consulting" class="peer sr-only" /><span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-dark-border bg-gray-900/60 text-sm text-gray-300 cursor-pointer transition-colors hover:border-brand-500/50 peer-checked:border-brand-400 peer-checked:bg-brand-500/10 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500/40"><i data-lucide="message-circle" class="w-4 h-4 text-brand-400"></i><span data-es="Consultoría / revisión de código">Consulting / code review</span></span></label>
-              </div>
-            </fieldset>
-            <div class="grid sm:grid-cols-2 gap-5">
-              <label class="block text-sm font-medium text-gray-300"><span data-es="Plazo">Timeline</span>
-              <select name="timeline" class="mt-2 w-full rounded-xl bg-gray-900/60 border border-dark-border px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-500/30 transition-colors">
-                <option value="" data-es="Selecciona una opción">Select an option</option>
-                <option value="ASAP" data-es="Lo antes posible">As soon as possible</option>
-                <option value="1-3 months" data-es="1–3 meses">1–3 months</option>
-                <option value="3-6 months" data-es="3–6 meses">3–6 months</option>
-                <option value="Flexible" data-es="Flexible / sin prisa">Flexible / no rush</option>
-              </select></label>
-              <label class="block text-sm font-medium text-gray-300"><span data-es="Presupuesto estimado">Estimated budget</span>
-              <select name="budget" class="mt-2 w-full rounded-xl bg-gray-900/60 border border-dark-border px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-500/30 transition-colors">
-                <option value="" data-es="Selecciona una opción">Select an option</option>
-                <option value="< $2k" data-es="Menos de $2k">Under $2k</option>
-                <option value="$2k-$10k" data-es="$2k – $10k">$2k – $10k</option>
-                <option value="$10k-$30k" data-es="$10k – $30k">$10k – $30k</option>
-                <option value="$30k+" data-es="$30k+">$30k+</option>
-                <option value="Not sure" data-es="Aún no lo sé">Not sure yet</option>
-              </select></label>
-            </div>
-            <label class="block text-sm font-medium text-gray-300"><span data-es="Cuéntanos sobre tu proyecto">Tell us about your project</span><textarea name="message" rows="6" required data-es-placeholder="¿Qué quieres construir, para quién, y qué existe hoy (sitio, código, diseños)? Enlaces bienvenidos." placeholder="What do you want to build, who is it for, and what exists today (site, code, designs)? Links welcome." class="mt-2 w-full rounded-xl bg-gray-900/60 border border-dark-border px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-500/30 transition-colors resize-y"></textarea></label>
-            <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
-            <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-gray-900 bg-brand-400 hover:bg-brand-500 rounded-xl transition-all duration-300 shadow-glow hover:shadow-glow-cyan transform hover:-translate-y-0.5 px-8 disabled:opacity-60 disabled:cursor-wait">
-              <span data-es="Enviar mensaje">Send message</span>
-              <i data-lucide="send" class="w-4 h-4 ml-2"></i>
-            </button>
-            <p id="form-status" class="form-status min-h-[1.4em] text-sm text-gray-400" role="status" aria-live="polite"></p>
-          </form>
 
-          <aside class="lg:col-span-4 space-y-6">
-            <div class="p-6 rounded-2xl bg-dark-card border border-dark-border space-y-4">
-              <h3 class="text-lg font-bold text-white" data-es="O escríbenos directamente">Or reach us directly</h3>
-              <a href="mailto:ankbape@gmail.com" class="flex items-center gap-3 p-3 rounded-xl bg-gray-900/60 border border-dark-border/50 hover:border-brand-500/50 transition-colors text-sm text-gray-300 hover:text-white">
-                <span class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center flex-shrink-0"><i data-lucide="mail" class="w-5 h-5"></i></span>
-                <span class="font-mono break-all">ankbape@gmail.com</span>
-              </a>
-              <a href="https://www.linkedin.com/in/andres-badel-b40333116/" target="_blank" rel="noopener" class="flex items-center gap-3 p-3 rounded-xl bg-gray-900/60 border border-dark-border/50 hover:border-brand-500/50 transition-colors text-sm text-gray-300 hover:text-white">
-                <span class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center flex-shrink-0"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></span>
-                <span>LinkedIn</span>
-                <i data-lucide="arrow-up-right" class="w-4 h-4 ml-auto text-gray-500"></i>
-              </a>
-            </div>
-            <div class="p-6 rounded-2xl bg-dark-card border border-dark-border space-y-3 text-sm text-gray-400">
-              <div class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-brand-400"></i><span data-es="Respuesta en 1–2 días hábiles">Reply within 1–2 business days</span></div>
-              <div class="flex items-center gap-2"><i data-lucide="user-check" class="w-4 h-4 text-brand-400"></i><span data-es="Trato directo con el equipo">Direct access to the team</span></div>
-              <div class="flex items-center gap-2"><i data-lucide="code-2" class="w-4 h-4 text-brand-400"></i><span data-es="Código limpio y documentado">Clean, documented code</span></div>
-            </div>
-          </aside>
+    <div class="container contact-grid">
+      <div class="form-card">
+        <div class="stepper" aria-label="Form steps">
+          <button type="button"><span data-es="1 · sobre ti">1 · about you</span></button>
+          <button type="button"><span data-es="2 · el proyecto">2 · the project</span></button>
+          <button type="button"><span data-es="3 · detalles">3 · details</span></button>
         </div>
+        <form id="contact-form" class="fm" novalidate>
+          <fieldset class="step active">
+            <legend class="step-title" data-es="Sobre ti">About you</legend>
+            <div class="row2">
+              <label class="field" for="f-name"><span data-es="Nombre">Name</span><input id="f-name" name="name" required autocomplete="name" maxlength="100" /></label>
+              <label class="field" for="f-email"><span data-es="Correo">Email</span><input id="f-email" name="email" type="email" required autocomplete="email" maxlength="200" /></label>
+            </div>
+            <fieldset class="group">
+              <legend data-es="¿Quién nos escribe?">Who's reaching out?</legend>
+              <div class="chips">
+                <label><input type="radio" name="source" value="Company" required /><span><b data-es="Empresa">Company</b></span></label>
+                <label><input type="radio" name="source" value="Startup" /><span><b data-es="Startup">Startup</b></span></label>
+                <label><input type="radio" name="source" value="Agency" /><span><b data-es="Agencia / socio">Agency / partner</b></span></label>
+                <label><input type="radio" name="source" value="Personal project" /><span><b data-es="Proyecto personal">Personal project</b></span></label>
+              </div>
+            </fieldset>
+            <label class="field" for="f-company"><span><span data-es="Empresa u organización">Company or organization</span> <span class="opt" data-es="(opcional)">(optional)</span></span><input id="f-company" name="company" autocomplete="organization" maxlength="120" /></label>
+          </fieldset>
+
+          <fieldset class="step">
+            <legend class="step-title" data-es="El proyecto">The project</legend>
+            <fieldset class="group">
+              <legend data-es="¿En qué etapa está el proyecto?">Where does the project stand?</legend>
+              <div class="chips">
+                <label><input type="radio" name="stage" value="New idea" required /><span><b data-es="Idea nueva">New idea</b><small data-es="explorémosla">let's explore it</small></span></label>
+                <label><input type="radio" name="stage" value="In progress" /><span><b data-es="Proyecto existente">Existing project</b><small data-es="para continuar">to continue</small></span></label>
+                <label><input type="radio" name="stage" value="Live product" /><span><b data-es="Producto en producción">Live product</b><small data-es="mejorar o mantener">improve or maintain</small></span></label>
+              </div>
+            </fieldset>
+            <fieldset class="group">
+              <legend><span data-es="¿Qué necesitas?">What do you need?</span> <span class="opt" data-es="(elige todas las que apliquen)">(select all that apply)</span></legend>
+              <div class="chips">
+                <label><input type="checkbox" name="services" value="Website" /><span><b data-es="Sitio web / landing">Website / landing</b></span></label>
+                <label><input type="checkbox" name="services" value="Web app" /><span><b data-es="Aplicación web">Web app</b></span></label>
+                <label><input type="checkbox" name="services" value="Mobile app" /><span><b data-es="App móvil">Mobile app</b></span></label>
+                <label><input type="checkbox" name="services" value="Backend / API" /><span><b data-es="Backend / API">Backend / API</b></span></label>
+                <label><input type="checkbox" name="services" value="Integrations / automation" /><span><b data-es="Integraciones / automatización">Integrations / automation</b></span></label>
+                <label><input type="checkbox" name="services" value="Consulting" /><span><b data-es="Consultoría / revisión de código">Consulting / code review</b></span></label>
+              </div>
+            </fieldset>
+            <label class="field" for="f-message"><span data-es="Cuéntanos sobre tu proyecto">Tell us about your project</span><textarea id="f-message" name="message" rows="6" required maxlength="5000" data-es-placeholder="¿Qué quieres construir, para quién, y qué existe hoy (sitio, código, diseños)? Enlaces bienvenidos." placeholder="What do you want to build, who is it for, and what exists today (site, code, designs)? Links welcome."></textarea></label>
+          </fieldset>
+
+          <fieldset class="step">
+            <legend class="step-title" data-es="Detalles">Details</legend>
+            <div class="row2">
+              <label class="field" for="f-timeline"><span data-es="Plazo">Timeline</span>
+                <select id="f-timeline" name="timeline">
+                  <option value="" data-es="Selecciona una opción">Select an option</option>
+                  <option value="ASAP" data-es="Lo antes posible">As soon as possible</option>
+                  <option value="1-3 months" data-es="1–3 meses">1–3 months</option>
+                  <option value="3-6 months" data-es="3–6 meses">3–6 months</option>
+                  <option value="Flexible" data-es="Flexible / sin prisa">Flexible / no rush</option>
+                </select>
+              </label>
+              <label class="field" for="f-budget"><span data-es="Presupuesto estimado">Estimated budget</span>
+                <select id="f-budget" name="budget">
+                  <option value="" data-es="Selecciona una opción">Select an option</option>
+                  <option value="&lt; $2k" data-es="Menos de $2k">Under $2k</option>
+                  <option value="$2k-$10k" data-es="$2k – $10k">$2k – $10k</option>
+                  <option value="$10k-$30k" data-es="$10k – $30k">$10k – $30k</option>
+                  <option value="$30k+" data-es="$30k+">$30k+</option>
+                  <option value="Not sure" data-es="Aún no lo sé">Not sure yet</option>
+                </select>
+              </label>
+            </div>
+            <p class="muted" style="font-size:.92rem" data-es="Revisa el resumen y envíalo. Responde a nuestro correo con enlaces o archivos si los tienes.">Check the brief and send it. You can reply to our email with links or files later.</p>
+          </fieldset>
+
+          <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="form-foot">
+            <small id="step-count" aria-live="polite"></small>
+            <div class="btns">
+              <button type="button" class="btn btn-ghost" data-prev hidden data-es="Atrás">Back</button>
+              <button type="button" class="btn btn-primary" data-next><span data-es="Continuar">Continue</span><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+              <button type="submit" class="btn btn-primary"><span data-es="Enviar mensaje">Send message</span><svg class="ico" aria-hidden="true"><use href="#i-send"/></svg></button>
+            </div>
+          </div>
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+        </form>
       </div>
-    </section>
+
+      <aside class="side">
+        <div class="brief" aria-live="polite">
+          <header><span style="color:var(--ink)">project.brief</span><span data-es="borrador">draft</span></header>
+          <dl>
+            <dt data-es="de">from</dt><dd id="b-from">—</dd>
+            <dt data-es="tipo">type</dt><dd id="b-source">—</dd>
+            <dt data-es="etapa">stage</dt><dd id="b-stage">—</dd>
+            <dt data-es="necesita">needs</dt><dd id="b-needs">—</dd>
+            <dt data-es="plazo">timeline</dt><dd id="b-timeline">—</dd>
+            <dt data-es="presupuesto">budget</dt><dd id="b-budget">—</dd>
+          </dl>
+          <footer><b>● <span data-es="lo lee un desarrollador">a developer reads this</span></b><span data-es="respuesta en 1–2 días hábiles">reply in 1–2 business days</span></footer>
+        </div>
+        <div class="direct">
+          <h3 data-es="O escríbenos directamente">Or reach us directly</h3>
+          <a href="mailto:ankbape@gmail.com"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg><span class="mono">ankbape@gmail.com</span></a>
+          <a href="https://www.linkedin.com/in/andres-badel-b40333116/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-linkedin"/></svg><span>LinkedIn</span><svg class="ico arr" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+        </div>
+      </aside>
+    </div>
   </main>
 
-  <footer class="bg-dark-card border-t border-dark-border py-12 text-sm text-gray-400">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-        <div class="flex items-center space-x-3">
-          <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white font-mono font-bold text-sm" aria-hidden="true">&lt;/&gt;</div>
-          <span class="text-lg font-bold text-white font-mono">websportal<span class="text-brand-400">.dev</span></span>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="brand" aria-label="websportal.dev home"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x="1" y="1" width="28" height="28" fill="none" stroke="#2DD4BF" stroke-width="1.5"/><path d="M10 10.5 6 15l4 4.5M20 10.5l4 4.5-4 4.5M16.8 8.5l-3.6 13" fill="none" stroke="#E6EDF5" stroke-width="1.6" stroke-linecap="square"/><rect x="25" y="3" width="2.5" height="2.5" fill="#F5B43C"/></svg><span>websportal<em>.dev</em></span></a>
+          <p data-es="Un equipo independiente de desarrolladores que diseña, construye y opera plataformas web a la medida.">An independent team of developers who design, build and run custom web platforms.</p>
         </div>
-        <div class="flex flex-wrap justify-center gap-6 font-medium">
-          <a href="services.html" class="hover:text-brand-400 transition-colors" data-es="Servicios">Services</a>
-          <a href="platforms.html" class="hover:text-brand-400 transition-colors" data-es="Plataformas">Platforms</a>
-          <a href="about.html" class="hover:text-brand-400 transition-colors" data-es="Nosotros">About</a>
-          <a href="contact.html" class="hover:text-brand-400 transition-colors" data-es="Contacto">Contact</a>
-          <a href="https://www.linkedin.com/in/andres-badel-b40333116/" target="_blank" rel="noopener" class="hover:text-brand-400 transition-colors">LinkedIn</a>
-        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="services.html" data-es="Servicios">Services</a>
+          <a href="platforms.html" data-es="Plataformas">Platforms</a>
+          <a href="about.html" data-es="Nosotros">About</a>
+          <a href="contact.html" data-es="Contacto">Contact</a>
+          <a href="https://www.linkedin.com/in/andres-badel-b40333116/" target="_blank" rel="noopener">LinkedIn</a>
+        </nav>
       </div>
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-gray-500 border-t border-dark-border pt-6">
-        <p>© <span id="year"></span> websportal.dev</p>
-        <p><a href="privacy.html" class="hover:text-brand-400" data-es="Privacidad">Privacy</a> · <a href="terms.html" class="hover:text-brand-400" data-es="Términos">Terms</a></p>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> websportal.dev</span>
+        <span><a href="privacy.html" data-es="Privacidad">Privacy</a> · <a href="terms.html" data-es="Términos">Terms</a></span>
       </div>
     </div>
   </footer>
-
   <script src="script.js"></script>
-  <script>lucide.createIcons();</script>
 </body>
 </html>

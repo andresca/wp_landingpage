@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Terms of Service · websportal.dev</title>
   <meta name="description" content="Terms for using websportal.dev." />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
@@ -13,56 +13,80 @@
   <meta property="og:description" content="Terms for using websportal.dev." />
   <meta property="og:url" content="https://websportal.dev/terms.html" />
   <meta name="twitter:card" content="summary" />
-  <meta name="theme-color" content="#284b63" />
+  <meta name="theme-color" content="#0A1120" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Schibsted+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="nav">
-    <a href="index.html" class="brand" aria-label="websportal.dev home"><span class="brand-mark" aria-hidden="true">&lt;/&gt;</span><span class="brand-name">webs<b>portal</b></span><span class="tld">.dev</span></a>
-    <button id="menu-btn" class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
-    <nav id="site-nav">
-      <a href="services.html" data-es="Servicios">Services</a>
-      <a href="platforms.html" data-es="Plataformas">Platforms</a>
-      <a href="about.html" data-es="Nosotros">About</a>
-      <a href="contact.html" data-es="Contacto">Contact</a>
-      <button id="lang-btn" class="lang-btn" type="button" aria-label="Switch language">ES</button>
-      <!-- Owner-only console link: hidden unless unlocked (see script.js) -->
-      <a href="https://console.websportal.dev" id="console-btn" class="console-btn" hidden>console</a>
-    </nav>
+    <div class="container nav-in">
+      <a href="index.html" class="brand" aria-label="websportal.dev home"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x="1" y="1" width="28" height="28" fill="none" stroke="#2DD4BF" stroke-width="1.5"/><path d="M10 10.5 6 15l4 4.5M20 10.5l4 4.5-4 4.5M16.8 8.5l-3.6 13" fill="none" stroke="#E6EDF5" stroke-width="1.6" stroke-linecap="square"/><rect x="25" y="3" width="2.5" height="2.5" fill="#F5B43C"/></svg><span>websportal<em>.dev</em></span></a>
+      <nav id="site-nav" class="nav-links" aria-label="Main">
+        <a href="services.html" data-es="Servicios">Services</a>
+        <a href="platforms.html" data-es="Plataformas">Platforms</a>
+        <a href="about.html" data-es="Nosotros">About</a>
+        <a href="contact.html" data-es="Contacto">Contact</a>
+        <!-- Owner-only console link: hidden unless unlocked (see script.js) -->
+        <a href="https://console.websportal.dev" id="console-btn" class="console-btn" hidden>console</a>
+        <a href="contact.html" class="btn btn-primary nav-cta" data-es="Iniciar un proyecto">Start a project</a>
+      </nav>
+      <div class="nav-right">
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang="es" aria-pressed="false">ES</button>
+        </div>
+        <a href="contact.html" class="btn btn-primary btn-sm"><span data-es="Iniciar un proyecto">Start a project</span><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        <button id="menu-btn" class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+      </div>
+    </div>
   </header>
 
   <main>
-    <section class="page-head">
-      <p class="eyebrow" data-es="Legal">Legal</p>
+    <section class="container page-hero">
+      <span class="eyebrow" data-es="Legal">Legal</span>
       <h1 data-es="Términos del servicio">Terms of Service</h1>
-      <p class="lead muted" data-es="Última actualización: 6 de octubre de 2026">Last updated: October 6, 2026</p>
+      <p class="muted mono" style="font-size:.85rem" data-es="Última actualización: 6 de octubre de 2026">Last updated: October 6, 2026</p>
     </section>
-
-    <section class="section first legal">
-      <h2 data-es="Uso del sitio">Using this site</h2>
-      <p data-es='websportal.dev es un portafolio informativo. Puedes navegarlo y contactarnos mediante el formulario o por correo.'>websportal.dev is an informational portfolio. You're welcome to browse it and contact us through the form or by email.</p>
-      <h2 data-es="Formulario de contacto">Contact form</h2>
-      <p data-es='Usa el formulario solo para consultas reales. No envíes spam, contenido dañino ni datos personales de otras personas.'>Please use the form only for genuine inquiries. Don't submit spam, harmful content, or other people's personal information.</p>
-      <h2 data-es="Sin compromiso">No obligation</h2>
-      <p data-es='Enviar un mensaje no crea un contrato ni compromiso. Cualquier proyecto se acuerda por separado y por escrito.'>Sending a message doesn't create a contract or commitment. Any project work is agreed separately in writing.</p>
-      <h2 data-es="Contenido">Content</h2>
-      <p data-es='Los textos, el diseño y los ejemplos de código de este sitio pertenecen a websportal.dev salvo que se indique lo contrario. Los nombres y logos de proyectos pertenecen a sus dueños.'>The text, design and code samples on this site belong to websportal.dev unless stated otherwise. Project names and logos belong to their owners.</p>
-      <h2 data-es="Sin garantía">No warranty</h2>
-      <p data-es='El sitio se ofrece tal cual. Intentamos mantenerlo correcto y disponible, pero no podemos garantizarlo.'>The site is provided as is. We try to keep it accurate and available but can't guarantee it.</p>
-      <h2 data-es="Cambios y contacto">Changes and contact</h2>
-      <p data-es='Estos términos pueden actualizarse; la fecha indica la última versión. Preguntas: <a href="mailto:ankbape@gmail.com">ankbape@gmail.com</a>.'>These terms may be updated; the date below shows the latest version. Questions: <a href="mailto:ankbape@gmail.com">ankbape@gmail.com</a>.</p>
+    <section class="container">
+      <div class="legal">
+        <h2 data-es="Uso del sitio">Using this site</h2>
+        <p data-es='websportal.dev es un portafolio informativo. Puedes navegarlo y contactarnos mediante el formulario o por correo.'>websportal.dev is an informational portfolio. You're welcome to browse it and contact us through the form or by email.</p>
+        <h2 data-es="Formulario de contacto">Contact form</h2>
+        <p data-es='Usa el formulario solo para consultas reales. No envíes spam, contenido dañino ni datos personales de otras personas.'>Please use the form only for genuine inquiries. Don't submit spam, harmful content, or other people's personal information.</p>
+        <h2 data-es="Sin compromiso">No obligation</h2>
+        <p data-es='Enviar un mensaje no crea un contrato ni compromiso. Cualquier proyecto se acuerda por separado y por escrito.'>Sending a message doesn't create a contract or commitment. Any project work is agreed separately in writing.</p>
+        <h2 data-es="Contenido">Content</h2>
+        <p data-es='Los textos, el diseño y los ejemplos de código de este sitio pertenecen a websportal.dev salvo que se indique lo contrario. Los nombres y logos de proyectos pertenecen a sus dueños.'>The text, design and code samples on this site belong to websportal.dev unless stated otherwise. Project names and logos belong to their owners.</p>
+        <h2 data-es="Sin garantía">No warranty</h2>
+        <p data-es='El sitio se ofrece tal cual. Intentamos mantenerlo correcto y disponible, pero no podemos garantizarlo.'>The site is provided as is. We try to keep it accurate and available but can't guarantee it.</p>
+        <h2 data-es="Cambios y contacto">Changes and contact</h2>
+        <p data-es='Estos términos pueden actualizarse; la fecha indica la última versión. Preguntas: <a href="mailto:ankbape@gmail.com">ankbape@gmail.com</a>.'>These terms may be updated; the date above shows the latest version. Questions: <a href="mailto:ankbape@gmail.com">ankbape@gmail.com</a>.</p>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <div class="footer-links">
-      <a href="https://www.linkedin.com/in/andres-badel-b40333116/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:ankbape@gmail.com">Email</a>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="brand" aria-label="websportal.dev home"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x="1" y="1" width="28" height="28" fill="none" stroke="#2DD4BF" stroke-width="1.5"/><path d="M10 10.5 6 15l4 4.5M20 10.5l4 4.5-4 4.5M16.8 8.5l-3.6 13" fill="none" stroke="#E6EDF5" stroke-width="1.6" stroke-linecap="square"/><rect x="25" y="3" width="2.5" height="2.5" fill="#F5B43C"/></svg><span>websportal<em>.dev</em></span></a>
+          <p data-es="Un equipo independiente de desarrolladores que diseña, construye y opera plataformas web a la medida.">An independent team of developers who design, build and run custom web platforms.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="services.html" data-es="Servicios">Services</a>
+          <a href="platforms.html" data-es="Plataformas">Platforms</a>
+          <a href="about.html" data-es="Nosotros">About</a>
+          <a href="contact.html" data-es="Contacto">Contact</a>
+          <a href="https://www.linkedin.com/in/andres-badel-b40333116/" target="_blank" rel="noopener">LinkedIn</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> websportal.dev</span>
+        <span><a href="privacy.html" data-es="Privacidad">Privacy</a> · <a href="terms.html" data-es="Términos">Terms</a></span>
+      </div>
     </div>
-    <p class="footer-legal"><a href="privacy.html" data-es="Privacidad">Privacy</a> · <a href="terms.html" data-es="Términos">Terms</a></p>
-    <p>© <span id="year"></span> websportal.dev</p>
   </footer>
   <script src="script.js"></script>
 </body>
