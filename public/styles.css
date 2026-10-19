@@ -30,7 +30,6 @@ body {
   color: var(--ink);
   font: 400 16px/1.65 var(--body);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 body::before { /* soft teal glow at the top, behind the stars */
   content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
@@ -76,7 +75,7 @@ p { margin: 0; }
 
 /* ---------- Header ---------- */
 .nav {
-  position: sticky; top: 0; z-index: 50;
+  position: sticky; top: 0; z-index: 50; padding-top: env(safe-area-inset-top, 0px);
   background: rgba(10, 17, 32, .78); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
