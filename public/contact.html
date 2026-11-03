@@ -24,6 +24,7 @@
     <div class="container nav-in">
       <a href="index.html" class="brand" aria-label="websportal.dev home"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x="1" y="1" width="28" height="28" fill="none" stroke="#2DD4BF" stroke-width="1.5"/><path d="M10 10.5 6 15l4 4.5M20 10.5l4 4.5-4 4.5M16.8 8.5l-3.6 13" fill="none" stroke="#18231F" stroke-width="1.6" stroke-linecap="square"/><rect x="25" y="3" width="2.5" height="2.5" fill="#F5B43C"/></svg><span>websportal<em>.dev</em></span></a>
       <nav id="site-nav" class="nav-links" aria-label="Main">
+        <a href="index.html#apps" data-es="Apps">Apps</a>
         <a href="services.html" data-es="Servicios">Services</a>
         <a href="platforms.html" data-es="Plataformas">Platforms</a>
         <a href="about.html" data-es="Nosotros">About</a>
@@ -64,6 +65,15 @@
               <label class="field" for="f-name"><span data-es="Nombre">Name</span><input id="f-name" name="name" required autocomplete="name" maxlength="100" /></label>
               <label class="field" for="f-email"><span data-es="Correo">Email</span><input id="f-email" name="email" type="email" required autocomplete="email" maxlength="200" /></label>
             </div>
+            <fieldset class="group">
+              <legend><span data-es="¿Qué te interesa?">What are you interested in?</span> <span class="opt" data-es="(opcional)">(optional)</span></legend>
+              <div class="chips">
+                <label><input type="radio" name="interest" value="Free app" /><span><b data-es="Una app gratuita">A free app</b><small data-es="proyectos sociales">charity projects</small></span></label>
+                <label><input type="radio" name="interest" value="Paid tool" /><span><b data-es="Una herramienta de pago">A paid tool</b><small data-es="para mi negocio">for my business</small></span></label>
+                <label><input type="radio" name="interest" value="Custom project" /><span><b data-es="Un proyecto a medida">A custom project</b><small data-es="contratarlos">hire you</small></span></label>
+                <label><input type="radio" name="interest" value="Collaborate" /><span><b data-es="Colaborar o patrocinar">Collaborate / sponsor</b><small data-es="aliados y voluntarios">partners &amp; volunteers</small></span></label>
+              </div>
+            </fieldset>
             <fieldset class="group">
               <legend data-es="¿Quién nos escribe?">Who's reaching out?</legend>
               <div class="chips">
@@ -144,6 +154,7 @@
           <header><span style="color:var(--ink)">project.brief</span><span data-es="borrador">draft</span></header>
           <dl>
             <dt data-es="de">from</dt><dd id="b-from">—</dd>
+            <dt data-es="interés">interest</dt><dd id="b-interest">—</dd>
             <dt data-es="tipo">type</dt><dd id="b-source">—</dd>
             <dt data-es="etapa">stage</dt><dd id="b-stage">—</dd>
             <dt data-es="necesita">needs</dt><dd id="b-needs">—</dd>
@@ -169,6 +180,7 @@
           <p data-es="Un equipo independiente de desarrolladores que diseña, construye y opera plataformas web a la medida.">An independent team of developers who design, build and run custom web platforms.</p>
         </div>
         <nav class="footer-links" aria-label="Footer">
+          <a href="index.html#apps" data-es="Apps">Apps</a>
           <a href="services.html" data-es="Servicios">Services</a>
           <a href="platforms.html" data-es="Plataformas">Platforms</a>
           <a href="about.html" data-es="Nosotros">About</a>

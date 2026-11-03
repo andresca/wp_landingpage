@@ -266,6 +266,8 @@ document.getElementById("year").textContent = new Date().getFullYear();
     const fd = new FormData(form);
     const name = fd.get("name").trim(), company = fd.get("company").trim();
     out("b-from", [name, company].filter(Boolean).join(" · "));
+    const it = form.querySelector("input[name=interest]:checked");
+    out("b-interest", it && chipText(it));
     const src = form.querySelector("input[name=source]:checked");
     out("b-source", src && chipText(src));
     const st = form.querySelector("input[name=stage]:checked");
@@ -313,6 +315,13 @@ document.getElementById("year").textContent = new Date().getFullYear();
   });
 
   go(0);
+  // Links from the catalog pre-select the interest: contact.html?interest=free|paid|custom|collab
+  try {
+    const map = { free: "Free app", paid: "Paid tool", custom: "Custom project", collab: "Collaborate" };
+    const want = map[new URLSearchParams(location.search).get("interest")];
+    const radio = want && form.querySelector(`input[name=interest][value="${want}"]`);
+    if (radio) radio.checked = true;
+  } catch (_) {}
   brief();
 })();
 

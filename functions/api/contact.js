@@ -9,7 +9,7 @@ const DEFAULT_TO = "ankbape+websportal@gmail.com";
 const DEFAULT_FROM = "websportal contact <ankbape@gmail.com>";
 const LIMITS = {
   name: 100, email: 200, company: 120, message: 5000,
-  source: 40, stage: 40, services: 300, timeline: 40, budget: 40,
+  source: 40, interest: 40, stage: 40, services: 300, timeline: 40, budget: 40,
 };
 
 export async function onRequestPost({ request, env }) {
@@ -32,9 +32,9 @@ export async function onRequestPost({ request, env }) {
     return json({ ok: false, error: "too_long" }, 400);
   }
 
-  const subject = `New inquiry — ${f.name}${f.company ? ` (${f.company})` : ""}${f.stage ? ` · ${f.stage}` : ""}`;
+  const subject = `New inquiry — ${f.name}${f.company ? ` (${f.company})` : ""}${f.interest ? ` · ${f.interest}` : ""}${f.stage ? ` · ${f.stage}` : ""}`;
   const details = [
-    ["Source", f.source], ["Stage", f.stage], ["Needs", f.services],
+    ["Interest", f.interest], ["Source", f.source], ["Stage", f.stage], ["Needs", f.services],
     ["Timeline", f.timeline], ["Budget", f.budget],
   ].filter(([, v]) => v);
   const raw = buildMime({
