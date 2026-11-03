@@ -13,16 +13,16 @@
   <meta property="og:description" content="An independent team of developers building custom web platforms, admin dashboards and cloud backends that streamline how your business works." />
   <meta property="og:url" content="https://websportal.dev/" />
   <meta name="twitter:card" content="summary" />
-  <meta name="theme-color" content="#0A1120" />
+  <meta name="theme-color" content="#F7F6F2" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Schibsted+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body data-bg="stars">
+<body>
   <header class="nav">
     <div class="container nav-in">
-      <a href="index.html" class="brand" aria-label="websportal.dev home"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x="1" y="1" width="28" height="28" fill="none" stroke="#2DD4BF" stroke-width="1.5"/><path d="M10 10.5 6 15l4 4.5M20 10.5l4 4.5-4 4.5M16.8 8.5l-3.6 13" fill="none" stroke="#E6EDF5" stroke-width="1.6" stroke-linecap="square"/><rect x="25" y="3" width="2.5" height="2.5" fill="#F5B43C"/></svg><span>websportal<em>.dev</em></span></a>
+      <a href="index.html" class="brand" aria-label="websportal.dev home"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x="1" y="1" width="28" height="28" fill="none" stroke="#2DD4BF" stroke-width="1.5"/><path d="M10 10.5 6 15l4 4.5M20 10.5l4 4.5-4 4.5M16.8 8.5l-3.6 13" fill="none" stroke="#18231F" stroke-width="1.6" stroke-linecap="square"/><rect x="25" y="3" width="2.5" height="2.5" fill="#F5B43C"/></svg><span>websportal<em>.dev</em></span></a>
       <nav id="site-nav" class="nav-links" aria-label="Main">
         <a href="services.html" data-es="Servicios">Services</a>
         <a href="platforms.html" data-es="Plataformas">Platforms</a>
@@ -50,22 +50,30 @@
         <h1 data-es="Desarrollamos software que <span class=&quot;accent&quot;>impulsa el crecimiento de tu negocio.</span>">Building software that <span class="accent">moves your business forward.</span></h1>
         <p class="lead" data-es="Ya sea que busques automatizar procesos manuales o modernizar un sistema existente, diseñamos <strong>portales web y soluciones en la nube a la medida</strong> para optimizar tu trabajo.">Whether you're automating manual processes or upgrading an existing platform, we engineer <strong>custom web portals and cloud solutions</strong> that streamline your work.</p>
         <div class="ctas">
-          <a href="contact.html" class="btn btn-primary"><span data-es="Cuéntanos tu proyecto">Tell us about your project</span><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
-          <a href="#platforms" class="btn btn-ghost" data-es="Ver plataformas en producción">See live platforms</a>
+          <a href="#apps" class="btn btn-primary"><span data-es="Explorar las apps">Explore the apps</span><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+          <a href="#impact" class="btn btn-ghost" data-es="Proyectos con impacto social">Projects for good</a>
+          <a href="contact.html" class="btn btn-ghost" data-es="Contrátanos">Hire us</a>
+        </div>
+        <div class="tiers-line">
+          <span><i class="free"></i><b data-es="Gratis" >Free</b> <span data-es="para quien lo necesita">for people who need it</span></span>
+          <span><i class="paid"></i><b data-es="De pago">Paid</b> <span data-es="para tu negocio">for your business</span></span>
+          <span><i class="quote"></i><b data-es="A medida">Custom</b> <span data-es="hecho para ti">built for you</span></span>
         </div>
       </div>
-      <div class="sys" aria-hidden="true">
-        <header><span>system.overview</span><span class="ok">● <span data-es="todo en línea">all systems live</span></span></header>
-        <svg viewBox="0 0 360 230" font-family="IBM Plex Mono, monospace" font-size="10">
-          <rect class="box" x="14" y="20" width="98" height="40"/><text class="t1" x="24" y="38" data-es="tu equipo">your team</text><text class="t2" x="24" y="51" data-es="usuarios · roles">users · roles</text>
-          <rect class="box" x="14" y="170" width="98" height="40"/><text class="t1" x="24" y="188" data-es="tus herramientas">your tools</text><text class="t2" x="24" y="201">ERP · sheets</text>
-          <rect class="core" x="138" y="88" width="94" height="54"/><text class="t1" x="150" y="108">api.core</text><text class="t2" x="150" y="122">auth · data</text><text class="ta" x="150" y="134">p95 120ms</text>
-          <rect class="box" x="256" y="20" width="92" height="40"/><text class="t1" x="266" y="38">PSupport</text><text class="tl" x="266" y="51">● live</text>
-          <rect class="box" x="256" y="170" width="92" height="40"/><text class="t1" x="266" y="188">Tiendero</text><text class="tl" x="266" y="201">● live</text>
-          <path class="wire" d="M112 40 H125 V105 H138"/><path class="wire amb" d="M112 190 H125 V125 H138"/>
-          <path class="wire" d="M232 105 H244 V40 H256"/><path class="wire amb" d="M232 125 H244 V190 H256"/>
-        </svg>
-        <footer><div>stack<b>TypeScript · PostgreSQL</b></div><div>deploy<b>Docker · CI/CD</b></div></footer>
+      <div class="visual" aria-hidden="true">
+        <div class="sun"></div>
+        <div class="float f2" data-es="✦ Hecho para el día a día">✦ Built for everyday life</div>
+        <div class="vcard">
+          <small data-es="Tres formas de trabajar juntos">Three ways to work together</small>
+          <h3 data-es="Software que ayuda a todos.">Software that helps everyone.</h3>
+          <div class="tiles">
+            <div class="tile g"><b>01</b><small data-es="Apps gratis para el bien común">Free apps for good</small></div>
+            <div class="tile"><b>02</b><small data-es="Herramientas para tu negocio">Tools for your business</small></div>
+            <div class="tile"><b>03</b><small data-es="Software hecho a tu medida">Software built for you</small></div>
+            <div class="tile"><b>04</b><small data-es="Una idea nueva, juntos">A new idea, together</small></div>
+          </div>
+        </div>
+        <div class="float f1" data-es="◉ Pequeñas herramientas, valor real">◉ Small tools, real value</div>
       </div>
     </section>
 
@@ -78,7 +86,93 @@
       </div>
     </div>
 
-    <section id="services" class="section" style="border-top:0">
+    <section id="apps" class="section" style="border-top:0">
+      <div class="container">
+        <div class="section-head split">
+          <div>
+            <span class="eyebrow" data-es="Catálogo">Catalog</span>
+            <h2 data-es="Apps que hacen el bien y herramientas que puedes usar.">Apps that do good, and tools you can use.</h2>
+          </div>
+          <p class="lead" data-es="Algunas son gratis y buscan ayudar a la gente. Otras son herramientas para tu negocio. Si necesitas algo distinto, también lo construimos. Las marcadas como idea aún no existen: dinos cuáles te interesan.">Some are free and built to help people. Others are tools for your business. If you need something different, we build that too. Anything marked “Idea” isn’t built yet: tell us which ones matter to you.</p>
+        </div>
+        <div class="tabs" role="group" aria-label="Filter">
+          <button type="button" class="tab active" data-filter="all" data-es="Todas">All</button>
+          <button type="button" class="tab t-free" data-filter="good" data-es="Gratis (social)">Free (charity)</button>
+          <button type="button" class="tab t-paid" data-filter="business" data-es="Herramientas de pago">Paid tools</button>
+          <button type="button" class="tab t-quote" data-filter="custom" data-es="Contrátanos">Hire us</button>
+        </div>
+        <div class="apps" id="apps-grid">
+          <article class="app" data-cat="business">
+            <div class="app-top"><span class="ico-box biz">🛠️</span><span class="badge live" data-es="En producción">In production</span></div>
+            <span class="tier paid" data-es="De pago">Paid</span>
+            <h3>PSupport</h3>
+            <p data-es="Una plataforma de soporte y administración que reúne usuarios, roles, dashboards y analítica en un solo panel.">A support and admin platform that brings users, roles, dashboards and analytics together in one panel.</p>
+            <div class="tags"><span>Support</span><span>Roles</span><span>Analytics</span></div>
+            <div class="app-foot"><span class="price" data-es="Plan a medida">Custom plan</span><a href="platforms.html#psupport" class="more" data-es="Ver el caso ↗">See the case ↗</a></div>
+          </article>
+          <article class="app" data-cat="business">
+            <div class="app-top"><span class="ico-box biz">🏪</span><span class="badge live" data-es="En producción">In production</span></div>
+            <span class="tier paid" data-es="Suscripción">Subscription</span>
+            <h3>Tiendero</h3>
+            <p data-es="Una plataforma de gestión para pequeños negocios: inventario, ventas, compras, clientes, domicilios y personal en una sola app.">A management platform for small stores: inventory, sales, purchases, customers, deliveries and staff in one app.</p>
+            <div class="tags"><span>Retail</span><span>Inventory</span><span>Sales</span></div>
+            <div class="app-foot"><span class="price" data-es="Plan mensual">Monthly plan</span><a href="platforms.html#tiendero" class="more" data-es="Ver el caso ↗">See the case ↗</a></div>
+          </article>
+          <article class="app" data-cat="good">
+            <div class="app-top"><span class="ico-box good">🌱</span><span class="badge idea" data-es="Idea">Idea</span></div>
+            <span class="tier free" data-es="Gratis · social">Free · charity</span>
+            <h3>Skills Without Barriers</h3>
+            <p data-es="Conecta a personas que necesitan alternativas laborales con pequeños trabajos y oportunidades flexibles.">Connects people who need work alternatives with small flexible jobs and remote opportunities.</p>
+            <div class="tags"><span>Flexible work</span><span>Inclusion</span></div>
+            <div class="app-foot"><span class="price" data-es="Gratis para beneficiarios">Free for beneficiaries</span><a href="contact.html" class="more" data-es="Quiero ayudar ↗">I want to help ↗</a></div>
+          </article>
+          <article class="app" data-cat="good">
+            <div class="app-top"><span class="ico-box good">🤝</span><span class="badge idea" data-es="Idea">Idea</span></div>
+            <span class="tier free" data-es="Gratis · social">Free · charity</span>
+            <h3>A Hand Nearby</h3>
+            <p data-es="Conecta necesidades concretas con personas que pueden ofrecer dinero, productos o tiempo, con seguimiento transparente.">Matches concrete needs with people who can offer money, goods or time, with transparent follow-up.</p>
+            <div class="tags"><span>Community</span><span>Support</span></div>
+            <div class="app-foot"><span class="price" data-es="Gratis para beneficiarios">Free for beneficiaries</span><a href="contact.html" class="more" data-es="Quiero ayudar ↗">I want to help ↗</a></div>
+          </article>
+          <article class="app" data-cat="good">
+            <div class="app-top"><span class="ico-box good">🙌</span><span class="badge idea" data-es="Idea">Idea</span></div>
+            <span class="tier free" data-es="Gratis · social">Free · charity</span>
+            <h3>VolunteerHub</h3>
+            <p data-es="Ayuda a fundaciones y colectivos a organizar voluntarios, actividades y jornadas.">Helps foundations and collectives organize volunteers, activities and shifts.</p>
+            <div class="tags"><span>Volunteering</span><span>Nonprofits</span></div>
+            <div class="app-foot"><span class="price" data-es="Gratis para organizaciones elegibles">Free for eligible nonprofits</span><a href="contact.html" class="more" data-es="Quiero ayudar ↗">I want to help ↗</a></div>
+          </article>
+          <article class="app" data-cat="custom">
+            <div class="app-top"><span class="ico-box cust">✨</span><span class="badge open" data-es="Disponible">Open</span></div>
+            <span class="tier quote" data-es="Cotización a medida">Custom quote</span>
+            <h3>Your idea, built</h3>
+            <p data-es="¿Tienes algo específico en mente? Lo diseñamos y construimos de principio a fin, del primer boceto a producción.">Have something specific in mind? We design and build it end to end, from the first sketch to production.</p>
+            <div class="tags"><span>Web apps</span><span>Portals</span><span>Automation</span></div>
+            <div class="app-foot"><span class="price" data-es="Cotización cerrada">Fixed quote</span><a href="contact.html" class="more" data-es="Iniciar un proyecto ↗">Start a project ↗</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="impact" class="section" style="border-top:0">
+      <div class="container">
+        <div class="band">
+          <div>
+            <span class="eyebrow" data-es="Tecnología con propósito">Tech with purpose</span>
+            <h2 data-es="El progreso digital también debe abrir puertas.">Digital progress should open doors too.</h2>
+            <p data-es="Parte de lo que construimos es gratis para quienes más lo necesitan. Se sostiene con el trabajo que hacemos para empresas, y con aliados, organizaciones y patrocinadores que quieran sumarse.">Part of what we build is free for the people who need it most. It’s sustained by the work we do for businesses, and by partners, organizations and sponsors who want to join.</p>
+            <p class="funded" data-es="<strong>Así se financia:</strong> las apps gratuitas se sostienen con las apps de pago y los proyectos a medida. Cada negocio que nos contrata o se suscribe ayuda a que sigan siendo gratis."><strong>How it’s funded:</strong> the free apps are paid for by the paid apps and custom projects. Every business that hires us or subscribes helps keep them free.</p>
+            <a href="contact.html" class="btn btn-primary"><span data-es="Quiero colaborar">I want to collaborate</span><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+          </div>
+          <div class="panel">
+            <b data-es="Oportunidades, autonomía y comunidad.">Opportunity, autonomy and community.</b>
+            <p data-es="Buscamos aliados, voluntarios y organizaciones. Mediremos el impacto por ayudas y oportunidades concretadas, no solo por registros.">We’re looking for partners, volunteers and organizations. We’ll measure impact by help and opportunities actually delivered, not just sign-ups.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
       <div class="container">
         <div class="section-head split">
           <div>
@@ -112,38 +206,6 @@
             <p data-es="Conectamos las herramientas que ya usas, automatizamos tareas repetitivas y modernizamos sistemas heredados sin detener tu operación.">We connect the tools you already use, automate repetitive work and modernize legacy systems without stopping your operation.</p>
             <div class="tags"><span>REST &amp; GraphQL</span><span>Webhooks</span><span>Automation</span></div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="platforms" class="section">
-      <div class="container">
-        <div class="section-head split">
-          <div>
-            <span class="eyebrow" data-es="Plataformas">Platforms</span>
-            <h2 data-es="Productos que construimos y operamos">Products we build and run ourselves</h2>
-          </div>
-          <p class="lead" data-es="Además del trabajo con clientes, desarrollamos nuestras propias plataformas. Son la mejor muestra de cómo trabajamos: en producción, con usuarios reales.">Alongside client work, we develop our own platforms. They're the best proof of how we work: live, with real users.</p>
-        </div>
-        <div class="plats">
-          <article class="plat">
-            <div class="plat-top"><h3><img src="img/psupport.svg" alt="" />PSupport</h3><span class="live"><i></i><span data-es="En producción">In production</span></span></div>
-            <p data-es="Una plataforma de soporte y administración que reúne usuarios, roles, dashboards y analítica en un solo panel.">A support and admin platform that brings users, roles, dashboards and analytics together in one panel.</p>
-            <div class="kv"><span data-es="dominio">domain</span><b>psupport.websportal.dev</b><span data-es="enfoque">focus</span><b data-es="operación de soporte · roles">support ops · roles</b></div>
-            <div class="actions">
-              <a href="https://psupport.websportal.dev" target="_blank" rel="noopener" class="btn btn-primary btn-sm"><span data-es="Abrir PSupport">Open PSupport</span><svg class="ico" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
-              <a href="platforms.html#psupport" class="btn btn-ghost btn-sm" data-es="Ver el caso">Read the case study</a>
-            </div>
-          </article>
-          <article class="plat">
-            <div class="plat-top"><h3><img src="img/tiendero.svg" alt="" />Tiendero</h3><span class="live"><i></i><span data-es="En producción">In production</span></span></div>
-            <p data-es="Una plataforma de gestión para pequeños negocios: inventario, ventas, compras, clientes, domicilios y personal en una sola app.">A management platform for small stores: inventory, sales, purchases, customers, deliveries and staff in a single app.</p>
-            <div class="kv"><span data-es="dominio">domain</span><b>tiendero.websportal.dev</b><span data-es="enfoque">focus</span><b data-es="comercio · inventario">retail · inventory</b></div>
-            <div class="actions">
-              <a href="https://tiendero.websportal.dev" target="_blank" rel="noopener" class="btn btn-primary btn-sm"><span data-es="Abrir Tiendero">Open Tiendero</span><svg class="ico" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
-              <a href="platforms.html#tiendero" class="btn btn-ghost btn-sm" data-es="Ver el caso">Read the case study</a>
-            </div>
-          </article>
         </div>
       </div>
     </section>
@@ -212,7 +274,7 @@
     <div class="container">
       <div class="footer-top">
         <div>
-          <a href="index.html" class="brand" aria-label="websportal.dev home"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x="1" y="1" width="28" height="28" fill="none" stroke="#2DD4BF" stroke-width="1.5"/><path d="M10 10.5 6 15l4 4.5M20 10.5l4 4.5-4 4.5M16.8 8.5l-3.6 13" fill="none" stroke="#E6EDF5" stroke-width="1.6" stroke-linecap="square"/><rect x="25" y="3" width="2.5" height="2.5" fill="#F5B43C"/></svg><span>websportal<em>.dev</em></span></a>
+          <a href="index.html" class="brand" aria-label="websportal.dev home"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x="1" y="1" width="28" height="28" fill="none" stroke="#2DD4BF" stroke-width="1.5"/><path d="M10 10.5 6 15l4 4.5M20 10.5l4 4.5-4 4.5M16.8 8.5l-3.6 13" fill="none" stroke="#18231F" stroke-width="1.6" stroke-linecap="square"/><rect x="25" y="3" width="2.5" height="2.5" fill="#F5B43C"/></svg><span>websportal<em>.dev</em></span></a>
           <p data-es="Un equipo independiente de desarrolladores que diseña, construye y opera plataformas web a la medida.">An independent team of developers who design, build and run custom web platforms.</p>
         </div>
         <nav class="footer-links" aria-label="Footer">

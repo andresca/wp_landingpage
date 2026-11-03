@@ -315,3 +315,15 @@ document.getElementById("year").textContent = new Date().getFullYear();
   go(0);
   brief();
 })();
+
+
+// App catalog filter.
+(function () {
+  const tabs = document.querySelectorAll(".tab[data-filter]");
+  const apps = document.querySelectorAll("#apps-grid .app");
+  if (!tabs.length) return;
+  tabs.forEach((t) => t.addEventListener("click", () => {
+    tabs.forEach((x) => x.classList.toggle("active", x === t));
+    apps.forEach((a) => (a.hidden = t.dataset.filter !== "all" && a.dataset.cat !== t.dataset.filter));
+  }));
+})();
